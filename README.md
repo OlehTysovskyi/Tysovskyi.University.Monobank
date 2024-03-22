@@ -15,8 +15,6 @@ To get started with this project:
 
 ## Project Documentation
 
-## Monobank Project Documentation
-
 Welcome to the documentation for the Monobank project. This document provides an overview of the project, its features, technologies used, and implementation timeline.
 
 ### Project Overview
@@ -25,7 +23,7 @@ Monobank is a modern digital bank offering a range of banking services and finan
 
 ### List of Application Features
 
-1. **User Registration:** Users can sign up for a Monobank account using their Google credentials, ensuring a secure and hassle-free registration process.
+1. **User Registration:** Users can sign up for a Monobank account using their Google credentials or email, ensuring a secure and hassle-free registration process.
 
 2. **Account Dashboard:** Upon logging in, users are greeted with a personalized dashboard displaying an overview of their account balances, recent transactions, and other relevant information.
 
@@ -55,8 +53,8 @@ Monobank is a modern digital bank offering a range of banking services and finan
 - **Backend:** Express
 - **Database ORM:** Sequelize
 - **Authentication:** Passport.js with Google OAuth 2.0
-- **Cloud Platform:** Azure (Optional)
-- **CI/CD:** GitHub Actions (Optional)
+- **Cloud Platform:** Azure
+- **CI/CD:** GitHub Actions
 
 Using React for the frontend, Express for the backend, Sequelize for database operations, and Passport.js with Google OAuth 2.0 strategy for authentication provides a robust foundation for building a scalable, responsive, and secure digital banking application like Monobank.
 
@@ -89,5 +87,14 @@ This comprehensive documentation provides insights into the Monobank project's f
 - [x] Implement feature: Transaction History
 - [ ] Integrate Google OAuth 2.0 for user authorization
 - [ ] Implement 95% of code using services approach and Dependency Injection
-- [ ] Finalize project documentation
+- [x] Finalize project documentation
 - [ ] Perform initial unit testing
+
+### Week 4
+
+- [ ] Implement feature: Money Transfer
+- [ ] Integrate open API for additional functionality
+- [ ] Set up Storage Account on Azure for data storage
+- [ ] Refine architecture and infrastructure diagrams
+- [ ] Continue unit testing and code review
+
