@@ -62,10 +62,6 @@ Using React for the frontend, Express for the backend, Sequelize for database op
 
 The project's implementation timeline follows a structured approach, divided into several weeks. Each week focuses on implementing specific features, setting up necessary infrastructure, and ensuring the project's progress aligns with the overall goals.
 
-[Note: Implementation timeline details can be added here based on the provided schedule.]
-
-This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
-
 ### Week 1
 
 - [x] Implement feature: User Registration
@@ -97,4 +93,7 @@ This comprehensive documentation provides insights into the Monobank project's f
 - [ ] Set up Storage Account on Azure for data storage
 - [ ] Refine architecture and infrastructure diagrams
 - [ ] Continue unit testing and code review
+
+This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
+
 
