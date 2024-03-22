@@ -97,8 +97,6 @@ const getAccountBalance = async (req, res) => {
 
     const balance = account.balance;
 
-    console.error("=============", account.balance, "================");
-
     res.json({ balance });
   } catch (error) {
     console.error("Error while fetching user accounts:", error);
