@@ -1,6 +1,9 @@
+// Dashboard.js
+
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/authContext";
 import { NavLink } from "react-router-dom";
+import { fetchUserData } from "../services/userService";
 
 const Dashboard = ({ userId, accountId }) => {
   const { setIsLoggedIn } = useAuth();
@@ -8,35 +11,22 @@ const Dashboard = ({ userId, accountId }) => {
     setIsLoggedIn(false);
   };
 
-  const [username, setUsername] = useState("");
-  const [balance, setBalance] = useState("");
+  const [userData, setUserData] = useState({ username: "", balance: "" });
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchData = async () => {
       try {
-        const userResponse = await fetch(`/api/users/${userId}`);
-        if (!userResponse.ok) {
-          throw new Error("Failed to fetch user data");
-        }
-        const userData = await userResponse.json();
-        setUsername(userData.username);
-
-        const accountResponse = await fetch(
-          `/api/get-account-balance/${accountId}`
-        );
-        if (!accountResponse.ok) {
-          throw new Error("Failed to fetch account data");
-        }
-        const accountData = await accountResponse.json();
-        console.log(accountData);
-        setBalance(accountData.balance);
+        const data = await fetchUserData(userId, accountId);
+        setUserData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchUserData();
+    fetchData();
   }, [userId, accountId]);
+
+  const { username, balance } = userData;
 
   return (
     <div className="dashboard">

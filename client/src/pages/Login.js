@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import GoogleButton from "react-google-button";
 import { Navigate, NavLink } from "react-router-dom";
-import { useAuth } from "../../contexts/authContext";
+import { useAuth } from "../contexts/authContext";
 
-const CreateAccount = () => {
-  const { userId } = useAuth();
-
+const Login = () => {
+  const { setIsLoggedIn, setUserId } = useAuth();
   const [formData, setFormData] = useState({
-    user_id: userId,
-    account_type: "Savings",
-    balance: 0,
+    email: "",
+    password: "",
   });
 
   const [redirect, setRedirect] = useState(false);
@@ -17,25 +16,24 @@ const CreateAccount = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleCreatingAccount = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await fetch("/api/create-account", {
+      const response = await fetch("/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-      const data = await response.json();
       if (response.ok) {
-        console.log("Account created successfully");
+        const data = await response.json();
+        console.log("Login successful");
+        setIsLoggedIn(true);
+        setUserId(data.userId);
         setRedirect(true);
-      } else if (response.status === 400) {
-        alert(data.message);
       } else {
-        console.error("Account creating failed");
+        console.error("Login failed");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -49,43 +47,55 @@ const CreateAccount = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <form
-        onSubmit={handleCreatingAccount}
+        onSubmit={handleLogin}
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <select
-          name="account_type"
-          value={formData.account_type}
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
           onChange={handleChange}
+          placeholder="Enter your email"
           style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        >
-          <option value="Savings">Savings</option>
-          <option value="Checking">Checking</option>
-          <option value="Credit">Credit</option>
-        </select>
+        />
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Enter your password"
+          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
+        />
         <button
           type="submit"
           style={{
             padding: "10px 20px",
             fontSize: "1rem",
-            backgroundColor: "black",
+            backgroundColor: "blue",
             color: "white",
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",
           }}
         >
-          Create account
+          Login
         </button>
+        <GoogleButton
+          onClick={() => {
+            console.log("Google button clicked");
+          }}
+        />
       </form>
       <p>
-        <NavLink to="/">Go back</NavLink>
+        Don't have an account?{" "}
+        <NavLink to="/registration">Register here</NavLink>
       </p>
     </div>
   );
 };
 
-export default CreateAccount;
+export default Login;

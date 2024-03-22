@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import GoogleButton from "react-google-button";
 import { Navigate, NavLink } from "react-router-dom";
-import { useAuth } from "../../contexts/authContext";
+import { useAuth } from "../contexts/authContext";
 
-const Login = () => {
-  const { setIsLoggedIn, setUserId } = useAuth();
+const Registration = () => {
+  const { setIsLoggedIn } = useAuth();
   const [formData, setFormData] = useState({
+    username: "",
     email: "",
     password: "",
   });
@@ -16,24 +16,26 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = async (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
-        console.log("Login successful");
+        console.log("User registered successfully");
         setIsLoggedIn(true);
-        setUserId(data.userId);
         setRedirect(true);
+      } else if (response.status === 400) {
+        alert(data.message);
       } else {
-        console.error("Login failed");
+        console.error("Registration failed");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -47,13 +49,21 @@ const Login = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleRegistration}
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
+        <input
+          type="text"
+          name="username"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Enter your username"
+          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
+        />
         <input
           type="email"
           name="email"
@@ -75,27 +85,21 @@ const Login = () => {
           style={{
             padding: "10px 20px",
             fontSize: "1rem",
-            backgroundColor: "blue",
+            backgroundColor: "green",
             color: "white",
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",
           }}
         >
-          Login
+          Register
         </button>
-        <GoogleButton
-          onClick={() => {
-            console.log("Google button clicked");
-          }}
-        />
       </form>
       <p>
-        Don't have an account?{" "}
-        <NavLink to="/registration">Register here</NavLink>
+        Already have an account? <NavLink to="/login">Login here</NavLink>
       </p>
     </div>
   );
 };
 
-export default Login;
+export default Registration;

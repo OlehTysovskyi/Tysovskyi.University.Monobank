@@ -83,21 +83,18 @@ const getUserAccounts = async (req, res) => {
   }
 };
 
-const getAccountBalance = async (req, res) => {
+const getAccountBalanceById = async (req, res) => {
   const accountId = req.params.accountId;
 
   try {
     const account = await Account.findOne({
       where: { account_id: accountId },
     });
-
     if (!account) {
       return res.status(404).json({ error: "Account not found" });
     }
 
-    const balance = account.balance;
-
-    res.json({ balance });
+    res.status(200).send({ balance: account.getAccountBalance });
   } catch (error) {
     console.error("Error while fetching user accounts:", error);
     res.status(500).json({ error: "Error while fetching user accounts" });
@@ -109,5 +106,5 @@ module.exports = {
   getAccount,
   updateAccount,
   getUserAccounts,
-  getAccountBalance,
+  getAccountBalanceById,
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../../contexts/authContext";
+import { useAuth } from "../contexts/authContext";
 
 const ChooseAccount = () => {
   const { userId, setAccountId } = useAuth();

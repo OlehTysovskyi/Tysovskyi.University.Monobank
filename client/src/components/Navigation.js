@@ -6,11 +6,11 @@ import {
   Navigate,
 } from "react-router-dom";
 import App from "../App";
-import RegistrationForm from "./pages/Registration";
-import LoginForm from "./pages/Login";
-import Account from "./pages/Account";
-import CreateAccount from "./pages/CreateAccount";
-import ChooseAccount from "./pages/ChooseAccount";
+import RegistrationForm from "../pages/Registration";
+import LoginForm from "../pages/Login";
+import Account from "../pages/Account";
+import CreateAccount from "../pages/CreateAccount";
+import ChooseAccount from "../pages/ChooseAccount";
 
 import { useAuth } from "../contexts/authContext";
 

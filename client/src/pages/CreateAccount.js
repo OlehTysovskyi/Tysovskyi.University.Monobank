@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
-import { useAuth } from "../../contexts/authContext";
+import { useAuth } from "../contexts/authContext";
 
-const Registration = () => {
-  const { setIsLoggedIn } = useAuth();
+const CreateAccount = () => {
+  const { userId } = useAuth();
+
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+    user_id: userId,
+    account_type: "Savings",
+    balance: 0,
   });
 
   const [redirect, setRedirect] = useState(false);
@@ -16,11 +17,11 @@ const Registration = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleRegistration = async (e) => {
+  const handleCreatingAccount = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/register", {
+      const response = await fetch("/api/create-account", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,13 +30,12 @@ const Registration = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log("User registered successfully");
-        setIsLoggedIn(true);
+        console.log("Account created successfully");
         setRedirect(true);
       } else if (response.status === 400) {
         alert(data.message);
       } else {
-        console.error("Registration failed");
+        console.error("Account creating failed");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -49,57 +49,43 @@ const Registration = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <form
-        onSubmit={handleRegistration}
+        onSubmit={handleCreatingAccount}
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <input
-          type="text"
-          name="username"
-          value={formData.name}
+        <select
+          name="account_type"
+          value={formData.account_type}
           onChange={handleChange}
-          placeholder="Enter your username"
           style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
+        >
+          <option value="Savings">Savings</option>
+          <option value="Checking">Checking</option>
+          <option value="Credit">Credit</option>
+        </select>
         <button
           type="submit"
           style={{
             padding: "10px 20px",
             fontSize: "1rem",
-            backgroundColor: "green",
+            backgroundColor: "black",
             color: "white",
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",
           }}
         >
-          Register
+          Create account
         </button>
       </form>
       <p>
-        Already have an account? <NavLink to="/login">Login here</NavLink>
+        <NavLink to="/">Go back</NavLink>
       </p>
     </div>
   );
 };
 
-export default Registration;
+export default CreateAccount;

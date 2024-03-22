@@ -55,7 +55,7 @@ const getUsernameById = async (req, res) => {
       return res.status(404).send({ message: "User not found" });
     }
 
-    res.status(200).send({ username: user.username });
+    res.status(200).send({ username: user.getUsername });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Error fetching user" });

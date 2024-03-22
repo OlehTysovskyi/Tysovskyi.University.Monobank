@@ -36,6 +36,20 @@ const Account = sequelize.define(
   },
   {
     tableName: "Accounts",
+    getterMethods: {
+      getUserId() {
+        return this.getDataValue("user_id");
+      },
+      getAccountNumber() {
+        return this.getDataValue("account_number");
+      },
+      getAccountType() {
+        return this.getDataValue("account_type");
+      },
+      getAccountBalance() {
+        return this.getDataValue("balance");
+      },
+    },
   }
 );
 
