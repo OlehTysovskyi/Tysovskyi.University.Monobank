@@ -1,39 +1,22 @@
-// Dashboard.js
-
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/authContext";
 import { NavLink } from "react-router-dom";
-import { fetchUserData } from "../services/userService";
 
-const Dashboard = ({ userId, accountId }) => {
+const Dashboard = ({}) => {
   const { setIsLoggedIn } = useAuth();
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
 
-  const [userData, setUserData] = useState({ username: "", balance: "" });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchUserData(userId, accountId);
-        setUserData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [userId, accountId]);
-
-  const { username, balance } = userData;
+  const user = JSON.parse(localStorage.getItem("userData"));
+  const account = JSON.parse(localStorage.getItem("accountData"));
 
   return (
     <div className="dashboard">
       <NavLink key="" to="/choose-account" className="choose-acc-btn"></NavLink>
       <div className="funds-box">
-        <div className="funds">{balance} ₴</div>
-        <div className="own-funds">Власні кошти: {balance} ₴</div>
+        <div className="funds">{account.balance} ₴</div>
+        <div className="own-funds">Власні кошти: {account.balance} ₴</div>
         <div className="credit-limit">Кредитний ліміт: 0.00 ₴</div>
       </div>
 
@@ -50,7 +33,7 @@ const Dashboard = ({ userId, accountId }) => {
         }}
         onClick={handleLogout}
       >
-        Вийти з {username}
+        Вийти з {user.username}
       </button>
 
       <div className="menu">

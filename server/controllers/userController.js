@@ -46,7 +46,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-const getUsernameById = async (req, res) => {
+const getUserById = async (req, res) => {
   const userId = req.params.userId;
 
   try {
@@ -55,11 +55,11 @@ const getUsernameById = async (req, res) => {
       return res.status(404).send({ message: "User not found" });
     }
 
-    res.status(200).send({ username: user.getUsername });
+    res.status(200).send({ user: user });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Error fetching user" });
   }
 };
 
-module.exports = { registerUser, loginUser, getUsernameById };
+module.exports = { registerUser, loginUser, getUserById };

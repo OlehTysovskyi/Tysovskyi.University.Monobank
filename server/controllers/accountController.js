@@ -37,40 +37,6 @@ async function createAccount(req, res) {
   }
 }
 
-async function getAccount(req, res) {
-  const accountId = req.params.id;
-
-  try {
-    const account = await Account.findByPk(accountId);
-    if (!account) {
-      return res.status(404).json({ message: "Account not found" });
-    }
-    res.status(200).json(account);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Error while getting info about account" });
-  }
-}
-
-async function updateAccount(req, res) {
-  const accountId = req.params.id;
-  const { account_type, balance } = req.body;
-
-  try {
-    const account = await Account.findByPk(accountId);
-    if (!account) {
-      return res.status(404).json({ message: "Account not found" });
-    }
-    await account.update({ account_type, balance });
-    res.status(200).json({ message: "Account info updated successfully" });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ message: "Error while updating info about account" });
-  }
-}
-
 const getUserAccounts = async (req, res) => {
   const userId = req.params.userId;
 
@@ -83,7 +49,7 @@ const getUserAccounts = async (req, res) => {
   }
 };
 
-const getAccountBalanceById = async (req, res) => {
+const getAccountById = async (req, res) => {
   const accountId = req.params.accountId;
 
   try {
@@ -94,7 +60,7 @@ const getAccountBalanceById = async (req, res) => {
       return res.status(404).json({ error: "Account not found" });
     }
 
-    res.status(200).send({ balance: account.getAccountBalance });
+    res.status(200).send({ account: account });
   } catch (error) {
     console.error("Error while fetching user accounts:", error);
     res.status(500).json({ error: "Error while fetching user accounts" });
@@ -103,8 +69,6 @@ const getAccountBalanceById = async (req, res) => {
 
 module.exports = {
   createAccount,
-  getAccount,
-  updateAccount,
   getUserAccounts,
-  getAccountBalanceById,
+  getAccountById,
 };

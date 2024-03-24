@@ -29,17 +29,6 @@ const User = sequelize.define(
   },
   {
     tableName: "Users",
-    getterMethods: {
-      getUsername() {
-        return this.getDataValue("username");
-      },
-      getEmail() {
-        return this.getDataValue("email");
-      },
-      getGoogleCredentials() {
-        return this.getDataValue("google_credentials");
-      },
-    },
   }
 );
 
