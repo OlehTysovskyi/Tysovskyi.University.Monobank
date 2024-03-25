@@ -9,14 +9,18 @@ const Dashboard = ({}) => {
   };
 
   const user = JSON.parse(localStorage.getItem("userData"));
-  const account = JSON.parse(localStorage.getItem("accountData"));
+  const card = JSON.parse(localStorage.getItem("cardData"));
 
   return (
     <div className="dashboard">
-      <NavLink key="" to="/choose-account" className="choose-acc-btn"></NavLink>
+      <NavLink
+        key=""
+        to="/cards-and-accounts"
+        className="cards-page-btn"
+      ></NavLink>
       <div className="funds-box">
-        <div className="funds">{account.balance} ₴</div>
-        <div className="own-funds">Власні кошти: {account.balance} ₴</div>
+        <div className="funds">{card.balance} ₴</div>
+        <div className="own-funds">Власні кошти: {card.balance} ₴</div>
         <div className="credit-limit">Кредитний ліміт: 0.00 ₴</div>
       </div>
 

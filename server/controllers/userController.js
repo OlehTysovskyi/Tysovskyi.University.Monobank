@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
-const User = require("../models/users");
+const User = require("../models/user");
 
 router.use(express.json());
 
@@ -16,7 +16,11 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await User.create({ username, email, password_hash: hashedPassword });
+    await User.create({
+      username: username,
+      email: email,
+      password_hash: hashedPassword,
+    });
     res.status(200).send({ message: "User registered successfully" });
   } catch (error) {
     console.error(error);
@@ -39,7 +43,7 @@ const loginUser = async (req, res) => {
       return res.status(401).send({ message: "Invalid email or password" });
     }
 
-    res.status(200).send({ message: "Login successful", userId: user.user_id });
+    res.status(200).send({ message: "Login successful", userId: user.id });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Error logging in" });
@@ -47,10 +51,10 @@ const loginUser = async (req, res) => {
 };
 
 const getUserById = async (req, res) => {
-  const userId = req.params.userId;
+  const user_id = req.params.userId;
 
   try {
-    const user = await User.findOne({ where: { user_id: userId } });
+    const user = await User.findOne({ where: { id: user_id } });
     if (!user) {
       return res.status(404).send({ message: "User not found" });
     }

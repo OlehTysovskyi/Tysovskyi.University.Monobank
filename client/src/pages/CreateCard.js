@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
 
-const CreateAccount = () => {
+const CreateCard = () => {
   const { userId } = useAuth();
 
   const [formData, setFormData] = useState({
     user_id: userId,
-    account_type: "Savings",
+    type: "BLACK",
     balance: 0,
   });
 
@@ -21,7 +21,7 @@ const CreateAccount = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/create-account", {
+      const response = await fetch("/api/create-card", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,12 +30,12 @@ const CreateAccount = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log("Account created successfully");
+        console.log("Card created successfully");
         setRedirect(true);
       } else if (response.status === 400) {
         alert(data.message);
       } else {
-        console.error("Account creating failed");
+        console.error("Card creating failed");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -57,14 +57,14 @@ const CreateAccount = () => {
         }}
       >
         <select
-          name="account_type"
-          value={formData.account_type}
+          name="type"
+          value={formData.type}
           onChange={handleChange}
           style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
         >
-          <option value="Savings">Savings</option>
-          <option value="Checking">Checking</option>
-          <option value="Credit">Credit</option>
+          <option value="BLACK">BLACK</option>
+          <option value="WHITE">WHITE</option>
+          <option value="CHILD">CHILD</option>
         </select>
         <button
           type="submit"
@@ -78,7 +78,7 @@ const CreateAccount = () => {
             cursor: "pointer",
           }}
         >
-          Create account
+          Create card
         </button>
       </form>
       <p>
@@ -88,4 +88,4 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default CreateCard;

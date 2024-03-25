@@ -4,10 +4,12 @@ const { sequelize } = require("../config/database");
 const User = sequelize.define(
   "User",
   {
-    user_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
+      unique: true,
     },
     username: {
       type: DataTypes.STRING,
@@ -25,6 +27,11 @@ const User = sequelize.define(
     },
     google_credentials: {
       type: DataTypes.STRING,
+      allowNull: true,
+    },
+    avatar_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

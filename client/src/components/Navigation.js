@@ -9,8 +9,8 @@ import App from "../App";
 import RegistrationForm from "../pages/Registration";
 import LoginForm from "../pages/Login";
 import Account from "../pages/Account";
-import CreateAccount from "../pages/CreateAccount";
-import ChooseAccount from "../pages/ChooseAccount";
+import CreateCard from "../pages/CreateCard";
+import CardsAndAccounts from "../pages/CardsAndAccounts";
 
 import { useAuth } from "../contexts/authContext";
 
@@ -23,8 +23,8 @@ const Navigation = () => {
         <Route path="/" element={<App />}>
           {/* <Route index element={<Account />} /> */}
           <Route index element={isLoggedIn ? <Account /> : <Navigate to="/login" />} />
-          <Route path="/create-account" element={<CreateAccount />} />
-          <Route path="/choose-account" element={<ChooseAccount />} />
+          <Route path="/create-card" element={<CreateCard />} />
+          <Route path="/cards-and-accounts" element={<CardsAndAccounts />} />
         </Route>
         <Route path="/registration" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginForm />} />

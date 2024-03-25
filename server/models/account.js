@@ -1,38 +1,43 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/database");
-const User = require("./users");
+const User = require("./user");
 
 const Account = sequelize.define(
   "Account",
   {
-    account_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
+      unique: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: User,
-        key: "user_id",
-      },
-    },
-    account_number: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [16, 16],
+        key: "id",
       },
       unique: true,
     },
-    account_type: {
+    IBAN: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     balance: {
       type: DataTypes.DECIMAL(18, 2),
       allowNull: false,
     },
+    opening_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    status: {
+      type: DataTypes.ENUM('ACTIVE', 'INACTIVE'),
+      defaultValue: 'ACTIVE',
+    }
   },
   {
     tableName: "Accounts",

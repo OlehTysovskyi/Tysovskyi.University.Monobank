@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import getUserData from "../services/userService";
-import getAccountData from "../services/accountService";
+import getCardData from "../services/cardService";
 
 const AuthContext = createContext();
 
@@ -22,13 +22,13 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("userId", userId);
   }, [userId]);
 
-  const [accountId, setAccountId] = useState(() => {
-    return localStorage.getItem("accountId") || null;
+  const [cardId, setCardId] = useState(() => {
+    return localStorage.getItem("cardId") || null;
   });
 
   useEffect(() => {
-    localStorage.setItem("accountId", accountId);
-  }, [accountId]);
+    localStorage.setItem("cardId", cardId);
+  }, [cardId]);
 
   const [userData, setUserData] = useState(() => {
     return localStorage.getItem("userData") || null;
@@ -43,30 +43,30 @@ export const AuthProvider = ({ children }) => {
     saveUserData();
   }, [userId]);
 
-  const [accountData, setAccountData] = useState(() => {
-    return localStorage.getItem("accountData") || null;
+  const [cardData, setCardData] = useState(() => {
+    return localStorage.getItem("cardData") || null;
   });
 
   useEffect(() => {
-    const saveAccountData = async () => {
-      const userData = await getAccountData();
-      localStorage.setItem("accountData", JSON.stringify(userData));
+    const saveCardData = async () => {
+      const cardData = await getCardData();
+      localStorage.setItem("cardData", JSON.stringify(cardData));
     };
 
-    saveAccountData();
-  }, [accountId]);
+    saveCardData();
+  }, [cardId]);
 
   return (
     <AuthContext.Provider
       value={{
         isLoggedIn,
         userId,
-        accountId,
+        cardId,
         setIsLoggedIn,
         setUserId,
-        setAccountId,
+        setCardId,
         setUserData,
-        setAccountData,
+        setCardData,
       }}
     >
       {children}
