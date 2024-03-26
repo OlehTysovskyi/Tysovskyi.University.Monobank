@@ -84,15 +84,15 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Integrate Google OAuth 2.0 for user authorization
 - [x] Implement 95% of code using services approach and Dependency Injection
 - [x] Finalize project documentation
-- [ ] Perform initial unit testing
+- [x] Perform initial unit testing
 
 ### Week 4
 
-- [ ] Implement feature: Money Transfer
+- [x] Implement feature: Money Transfer
 - [ ] Integrate open API for additional functionality
 - [ ] Set up Storage Account on Azure for data storage
 - [ ] Refine architecture and infrastructure diagrams
-- [ ] Continue unit testing and code review
+- [x] Continue unit testing and code review
 
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
 
