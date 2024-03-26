@@ -90,7 +90,7 @@ The project's implementation timeline follows a structured approach, divided int
 
 - [x] Implement feature: Money Transfer
 - [ ] Integrate open API for additional functionality
-- [ ] Set up Storage Account on Azure for data storage
+- [x] Set up Storage Account on Azure for data storage
 - [ ] Refine architecture and infrastructure diagrams
 - [x] Continue unit testing and code review
 
