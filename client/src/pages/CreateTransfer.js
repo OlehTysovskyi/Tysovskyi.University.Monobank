@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Navigate, NavLink } from "react-router-dom";
-import { useAuth } from "../contexts/authContext";
-import { register } from "../services/authService";
+import { Navigate } from "react-router-dom";
+import { createTransfer } from "../services/transferService";
 
-const Registration = () => {
-  const { setIsLoggedIn } = useAuth();
+const CreateTransfer = () => {
+  const card = JSON.parse(localStorage.getItem("cardData"));
+
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+    sender_card_num: card.number,
+    recipient_card_num: "",
+    amount: 0,
   });
 
   const [redirect, setRedirect] = useState(false);
@@ -17,16 +17,14 @@ const Registration = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleRegistration = async (e) => {
+  const handleCreatingTransfer = async (e) => {
     e.preventDefault();
 
     try {
-      const shouldRedirect = await register(formData, setIsLoggedIn); // Виклик функції register
-      if (shouldRedirect) {
-        setRedirect(true);
-      }
+      await createTransfer(formData);
+      setRedirect(true);
     } catch (error) {
-      console.error("Error:", error);
+      alert(error.message);
     }
   };
 
@@ -37,35 +35,35 @@ const Registration = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <form
-        onSubmit={handleRegistration}
+        onSubmit={handleCreatingTransfer}
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
+        {/* <input
+          type="text"
+          name="sender_card_num"
+          value={formData.sender_card_num}
+          onChange={handleChange}
+          placeholder="Sender Card Number"
+          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
+        /> */}
         <input
           type="text"
-          name="username"
-          value={formData.name}
+          name="recipient_card_num"
+          value={formData.recipient_card_num}
           onChange={handleChange}
-          placeholder="Enter your username"
+          placeholder="Recipient Card Number"
           style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
         />
         <input
-          type="email"
-          name="email"
-          value={formData.email}
+          type="number"
+          name="amount"
+          value={formData.amount}
           onChange={handleChange}
-          placeholder="Enter your email"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
+          placeholder="Amount"
           style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
         />
         <button
@@ -73,21 +71,18 @@ const Registration = () => {
           style={{
             padding: "10px 20px",
             fontSize: "1rem",
-            backgroundColor: "green",
+            backgroundColor: "blue",
             color: "white",
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",
           }}
         >
-          Register
+          Надіслати
         </button>
       </form>
-      <p>
-        Already have an account? <NavLink to="/login">Login here</NavLink>
-      </p>
     </div>
   );
 };
 
-export default Registration;
+export default CreateTransfer;

@@ -1,27 +1,27 @@
-// const createCard = async () => {
-//   try {
-//     const response = await fetch("/api/create-account", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(formData),
-//     });
-//     const data = await response.json();
-//     if (response.ok) {
-//       console.log("Account created successfully");
-//       setRedirect(true);
-//     } else if (response.status === 400) {
-//       alert(data.message);
-//     } else {
-//       console.error("Account creating failed");
-//     }
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// };
+export const createCard = async (formData) => {
+  try {
+    const response = await fetch("/api/create-card", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      console.log("Card created successfully");
+      return data;
+    } else if (response.status === 400) {
+      throw new Error(data.message);
+    } else {
+      throw new Error("Card creating failed");
+    }
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 
-const getCardData = async () => {
+export const getCardData = async () => {
   try {
     const cardId = localStorage.getItem("cardId");
     if (!cardId) {
@@ -41,4 +41,9 @@ const getCardData = async () => {
   }
 };
 
-export default getCardData;
+const cardService = {
+  createCard,
+  getCardData,
+};
+
+export default cardService;

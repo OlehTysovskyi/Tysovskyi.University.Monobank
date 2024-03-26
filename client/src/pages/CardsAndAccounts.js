@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
+import { getUserCards } from "../services/userService";
 
 const Cards = () => {
   const { userId, setCardId } = useAuth();
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    const fetchCards = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`/api/get-user-cards/${userId}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch user cards");
-        }
-        const data = await response.json();
-        setCards(data.cards);
+        const cardsData = await getUserCards(userId);
+        setCards(cardsData);
       } catch (error) {
         console.error("Error fetching user cards:", error);
       }
     };
 
-    fetchCards();
+    fetchData();
   }, [userId]);
 
   const handleCardClick = (cardId) => {

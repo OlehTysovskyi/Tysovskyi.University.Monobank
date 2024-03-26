@@ -1,9 +1,9 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const { sequelize } = require("../../config/database");
 const User = require("./user");
 
-const Loan = sequelize.define(
-  "Loan",
+const Account = sequelize.define(
+  "Account",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,31 +19,29 @@ const Loan = sequelize.define(
         model: User,
         key: "id",
       },
+      unique: true,
     },
-    amount: {
+    IBAN: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    balance: {
       type: DataTypes.DECIMAL(18, 2),
       allowNull: false,
     },
-    interest_rate: {
-      type: DataTypes.DECIMAL(5, 2),
-      allowNull: false,
-    },
-    duration: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    start_date: {
+    opening_date: {
       type: DataTypes.DATE,
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('ACTIVE', 'INACTIVE', 'PAID'),
+      type: DataTypes.ENUM('ACTIVE', 'INACTIVE'),
       defaultValue: 'ACTIVE',
     }
   },
   {
-    tableName: "Loans",
+    tableName: "Accounts",
   }
 );
 
-module.exports = Loan;
+module.exports = Account;

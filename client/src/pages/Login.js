@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import GoogleButton from "react-google-button";
 import { Navigate, NavLink } from "react-router-dom";
+import GoogleAuthButton from "../components/GoogleAuthButton";
 import { useAuth } from "../contexts/authContext";
+import { login } from "../services/authService";
 
 const Login = () => {
   const { setIsLoggedIn, setUserId } = useAuth();
@@ -19,21 +20,9 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Login successful");
-        setIsLoggedIn(true);
-        setUserId(data.userId);
+      const shouldRedirect = await login(formData, setIsLoggedIn, setUserId);
+      if (shouldRedirect) {
         setRedirect(true);
-      } else {
-        console.error("Login failed");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -84,11 +73,7 @@ const Login = () => {
         >
           Login
         </button>
-        <GoogleButton
-          onClick={() => {
-            console.log("Google button clicked");
-          }}
-        />
+        <GoogleAuthButton />
       </form>
       <p>
         Don't have an account?{" "}

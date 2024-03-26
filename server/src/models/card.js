@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const { sequelize } = require("../../config/database");
 const User = require("./user");
 
 const Card = sequelize.define(
@@ -25,6 +25,7 @@ const Card = sequelize.define(
         len: [16, 16],
       },
       unique: true,
+      allowNull: false,
     },
     expiry_date: {
       type: DataTypes.DATE,

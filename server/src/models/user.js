@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const { sequelize } = require("../../config/database");
 
 const User = sequelize.define(
   "User",
@@ -23,7 +23,7 @@ const User = sequelize.define(
     },
     password_hash: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     google_credentials: {
       type: DataTypes.STRING,

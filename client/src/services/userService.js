@@ -1,4 +1,4 @@
-const getUserData = async () => {
+export const getUserData = async () => {
   try {
     const userId = localStorage.getItem("userId");
     if (!userId) {
@@ -18,4 +18,22 @@ const getUserData = async () => {
   }
 };
 
-export default getUserData;
+export const getUserCards = async (userId) => {
+  try {
+    const response = await fetch(`/api/get-user-cards/${userId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user cards");
+    }
+    const data = await response.json();
+    return(data.cards);
+  } catch (error) {
+    console.error("Error fetching user cards:", error);
+  }
+};
+
+const userService = {
+  getUserData,
+  getUserCards,
+};
+
+export default userService;

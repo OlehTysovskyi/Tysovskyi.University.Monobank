@@ -1,22 +1,26 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const { sequelize } = require("../../config/database");
 
-const Payment = sequelize.define(
-  "Payment",
+const Transfer = sequelize.define(
+  "Transfer",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
-      unique: true,
     },
     sender_card_num: {
       type: DataTypes.STRING,
+      validate: {
+        len: [16, 16],
+      },
       allowNull: false,
     },
-    recipient_IBAN: {
+    recipient_card_num: {
       type: DataTypes.STRING,
+      validate: {
+        len: [16, 16],
+      },
       allowNull: false,
     },
     amount: {
@@ -27,18 +31,10 @@ const Payment = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    status: {
-      type: DataTypes.ENUM('PAID', 'UNPAID'),
-      defaultValue: 'UNPAID',
-    }
   },
   {
-    tableName: "Payments",
+    tableName: "Transfers",
   }
 );
 
-module.exports = Payment;
+module.exports = Transfer;

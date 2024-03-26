@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import getUserData from "../services/userService";
-import getCardData from "../services/cardService";
+import { getUserData } from "../services/userService";
+import { getCardData } from "../services/cardService";
 
 const AuthContext = createContext();
 

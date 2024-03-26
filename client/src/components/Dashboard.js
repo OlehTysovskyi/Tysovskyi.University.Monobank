@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useAuth } from "../contexts/authContext";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/authContext";
+import { fetchUserProfile } from "../services/googleAuthService";
 
-const Dashboard = ({}) => {
+const Dashboard = () => {
   const { setIsLoggedIn } = useAuth();
+
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
 
+  const data = fetchUserProfile();
   const user = JSON.parse(localStorage.getItem("userData"));
   const card = JSON.parse(localStorage.getItem("cardData"));
+
+  console.log("User Data:", user);
+  console.log("Card Data:", card);
 
   return (
     <div className="dashboard">
@@ -19,8 +25,10 @@ const Dashboard = ({}) => {
         className="cards-page-btn"
       ></NavLink>
       <div className="funds-box">
-        <div className="funds">{card.balance} ₴</div>
-        <div className="own-funds">Власні кошти: {card.balance} ₴</div>
+        <div className="funds">{card ? card.balance : 0} ₴</div>
+        <div className="own-funds">
+          Власні кошти: {card ? card.balance : 0} ₴
+        </div>
         <div className="credit-limit">Кредитний ліміт: 0.00 ₴</div>
       </div>
 
@@ -37,7 +45,7 @@ const Dashboard = ({}) => {
         }}
         onClick={handleLogout}
       >
-        Вийти з {user.username}
+        Вийти з {user ? user.username : data.username}
       </button>
 
       <div className="menu">
@@ -49,14 +57,14 @@ const Dashboard = ({}) => {
             свою картку
           </div>
         </div>
-        <div className="btn-container">
+        <NavLink className="btn-container" key="transfer" to="/create-transfer">
           <button className="btn">&gt;</button>
           <div className="btn-text">
             Переказати
             <br />
             на картку
           </div>
-        </div>
+        </NavLink>
         <div className="btn-container">
           <button className="btn">+</button>
           <div className="btn-text">

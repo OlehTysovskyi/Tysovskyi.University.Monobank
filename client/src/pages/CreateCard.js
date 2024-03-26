@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
+import { createCard } from "../services/cardService";
 
 const CreateCard = () => {
   const { userId } = useAuth();
@@ -21,24 +22,10 @@ const CreateCard = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/create-card", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        console.log("Card created successfully");
-        setRedirect(true);
-      } else if (response.status === 400) {
-        alert(data.message);
-      } else {
-        console.error("Card creating failed");
-      }
+      await createCard(formData);
+      setRedirect(true);
     } catch (error) {
-      console.error("Error:", error);
+      alert(error.message);
     }
   };
 
