@@ -81,8 +81,8 @@ The project's implementation timeline follows a structured approach, divided int
 ### Week 3
 
 - [x] Implement feature: Transaction History
-- [ ] Integrate Google OAuth 2.0 for user authorization
-- [ ] Implement 95% of code using services approach and Dependency Injection
+- [x] Integrate Google OAuth 2.0 for user authorization
+- [x] Implement 95% of code using services approach and Dependency Injection
 - [x] Finalize project documentation
 - [ ] Perform initial unit testing
 
