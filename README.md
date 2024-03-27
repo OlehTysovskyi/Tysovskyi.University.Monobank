@@ -75,7 +75,7 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Implement feature: Account Dashboard
 - [x] Set up SQL database on Azure
 - [x] Integrate Sequelize for database operations
-- [ ] Design architecture diagram
+- [x] Design architecture diagram
 - [x] Begin writing project documentation
 
 ### Week 3
