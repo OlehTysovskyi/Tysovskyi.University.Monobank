@@ -91,7 +91,7 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Implement feature: Money Transfer
 - [ ] Integrate open API for additional functionality
 - [x] Set up Storage Account on Azure for data storage
-- [ ] Refine architecture and infrastructure diagrams
+- [x] Refine architecture and infrastructure diagrams
 - [x] Continue unit testing and code review
 
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
