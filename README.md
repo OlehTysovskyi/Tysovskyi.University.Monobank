@@ -75,14 +75,14 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Implement feature: Account Dashboard
 - [x] Set up SQL database on Azure
 - [x] Integrate Sequelize for database operations
-- [ ] Design architecture diagram
+- [x] Design architecture diagram
 - [x] Begin writing project documentation
 
 ### Week 3
 
 - [x] Implement feature: Transaction History
 - [x] Integrate Google OAuth 2.0 for user authorization
-- [x] Implement 95% of code using services approach and Dependency Injection
+- [ ] Implement 95% of code using services approach and Dependency Injection
 - [x] Finalize project documentation
 - [x] Perform initial unit testing
 
@@ -91,7 +91,7 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Implement feature: Money Transfer
 - [ ] Integrate open API for additional functionality
 - [x] Set up Storage Account on Azure for data storage
-- [ ] Refine architecture and infrastructure diagrams
+- [x] Refine architecture and infrastructure diagrams
 - [x] Continue unit testing and code review
 
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
