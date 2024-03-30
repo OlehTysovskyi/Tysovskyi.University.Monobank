@@ -94,4 +94,18 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Refine architecture and infrastructure diagrams
 - [x] Continue unit testing and code review
 
+### Week 5
+- [ ] Implement feature: Bill Payments
+- [ ] Implement welcome email notification for new users
+- [ ] Configure Service Bus for message processing
+- [ ] Update Readme.md with comprehensive documentation
+- [ ] Increase unit test coverage to meet requirements
+
+### Week 6
+- [ ] Implement feature: Loan Application
+- [ ] Optimize application for Chrome PC browsers
+- [ ] Conduct postman testing for API endpoints
+- [ ] Review and refine code for clean coding principles
+- [ ] Perform integration testing and bug fixes
+
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
