@@ -1,21 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
-import { fetchUserProfile } from "../services/googleAuthService";
 
 const Dashboard = () => {
-  const { setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn, currentUser, currentCard } = useAuth();
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.clear();
   };
 
-  const data = fetchUserProfile();
-  const user = JSON.parse(localStorage.getItem("userData"));
-  const card = JSON.parse(localStorage.getItem("cardData"));
-
-  console.log("User Data:", user);
-  console.log("Card Data:", card);
+  const user = JSON.parse(currentUser);
+  const card = JSON.parse(currentCard);
 
   return (
     <div className="dashboard">
@@ -32,20 +28,8 @@ const Dashboard = () => {
         <div className="credit-limit">Кредитний ліміт: 0.00 ₴</div>
       </div>
 
-      <button
-        type="button"
-        style={{
-          padding: "10px 20px",
-          fontSize: "1rem",
-          backgroundColor: "blue",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-        onClick={handleLogout}
-      >
-        Вийти з {user ? user.username : data.username}
+      <button type="button" className="logout-btn" onClick={handleLogout}>
+        Вийти з {user ? user.username : "user"}
       </button>
 
       <div className="menu">

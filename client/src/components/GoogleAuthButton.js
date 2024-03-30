@@ -1,10 +1,11 @@
 import React from "react";
 import GoogleButton from "react-google-button";
-import { handleGoogleAuth } from "../services/googleAuthService";
+import { useAuthentication } from "../services/authService";
 
 const GoogleAuthButton = () => {
+  const { handleGoogleLogin } = useAuthentication();
   const handleClick = () => {
-    handleGoogleAuth();
+    handleGoogleLogin();
   };
 
   return <GoogleButton onClick={handleClick} />;

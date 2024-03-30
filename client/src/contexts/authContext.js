@@ -1,6 +1,4 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { getUserData } from "../services/userService";
-import { getCardData } from "../services/cardService";
 
 const AuthContext = createContext();
 
@@ -14,59 +12,53 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
   }, [isLoggedIn]);
 
-  const [userId, setUserId] = useState(() => {
-    return localStorage.getItem("userId") || null;
+  const [currentUser, setCurrentUserState] = useState(() => {
+    try {
+      const user = localStorage.getItem("currentUser");
+      return user ? JSON.parse(user) : null;
+    } catch (error) {
+      console.error("Error parsing currentUser:", error);
+      return null;
+    }
   });
 
-  useEffect(() => {
-    localStorage.setItem("userId", userId);
-  }, [userId]);
+  const setCurrentUser = (user) => {
+    try {
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      setCurrentUserState(user);
+    } catch (error) {
+      console.error("Error setting currentUser:", error);
+    }
+  };
 
-  const [cardId, setCardId] = useState(() => {
-    return localStorage.getItem("cardId") || null;
+  const [currentCard, setCurrentCardState] = useState(() => {
+    try {
+      const card = localStorage.getItem("currentCard");
+      return card ? JSON.parse(card) : null;
+    } catch (error) {
+      console.error("Error parsing currentCard:", error);
+      return null;
+    }
   });
 
-  useEffect(() => {
-    localStorage.setItem("cardId", cardId);
-  }, [cardId]);
-
-  const [userData, setUserData] = useState(() => {
-    return localStorage.getItem("userData") || null;
-  });
-
-  useEffect(() => {
-    const saveUserData = async () => {
-      const userData = await getUserData();
-      localStorage.setItem("userData", JSON.stringify(userData));
-    };
-
-    saveUserData();
-  }, [userId]);
-
-  const [cardData, setCardData] = useState(() => {
-    return localStorage.getItem("cardData") || null;
-  });
-
-  useEffect(() => {
-    const saveCardData = async () => {
-      const cardData = await getCardData();
-      localStorage.setItem("cardData", JSON.stringify(cardData));
-    };
-
-    saveCardData();
-  }, [cardId]);
+  const setCurrentCard = (card) => {
+    try {
+      localStorage.setItem("currentCard", JSON.stringify(card));
+      setCurrentCardState(card);
+    } catch (error) {
+      console.error("Error setting currentCard:", error);
+    }
+  };
 
   return (
     <AuthContext.Provider
       value={{
         isLoggedIn,
-        userId,
-        cardId,
         setIsLoggedIn,
-        setUserId,
-        setCardId,
-        setUserData,
-        setCardData,
+        currentUser,
+        setCurrentUser,
+        currentCard,
+        setCurrentCard,
       }}
     >
       {children}

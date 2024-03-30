@@ -3,18 +3,18 @@ require("../controllers/googleAuthController");
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const {
-  registerUser,
-  loginUser,
-  getUserById,
-} = require("../controllers/userController");
+const { getUserById } = require("../controllers/userController");
+const { registerUser, loginUser } = require("../controllers/authController");
 const {
   createCard,
   getUserCards,
   getCardById,
 } = require("../controllers/cardController");
+const {
+  createTransfer,
+  getUserTransfers,
+} = require("../controllers/transferController");
 const { isLoggedIn } = require("../utils/loginUtil");
-const { createTransfer } = require("../controllers/transferController");
 
 router.post("/api/register", registerUser);
 router.post("/api/login", loginUser);
@@ -25,6 +25,7 @@ router.get("/api/get-user-cards/:userId", getUserCards);
 router.get("/api/get-card-by-id/:cardId", getCardById);
 
 router.post("/api/create-transfer", createTransfer);
+router.get("/api/get-user-transfers/:userId", getUserTransfers);
 
 router.get(
   "/auth/google",
@@ -39,8 +40,21 @@ router.get(
   })
 );
 
-router.get("/profile", isLoggedIn, (req, res) => {
-  return res.json(req.user);
+const Card = require("../models/card");
+
+router.get("/profile", async (req, res) => {
+  try {
+    const user = req.user;
+    const currentCard = await Card.getUserCurrentCard(user.id);
+
+    res.json({
+      user: { id: user.id, username: user.username, email: user.email },
+      currentCard: currentCard,
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Error fetching user profile" });
+  }
 });
 
 module.exports = router;

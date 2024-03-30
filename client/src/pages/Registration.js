@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
-import { useAuth } from "../contexts/authContext";
-import { register } from "../services/authService";
+import { useAuthentication } from "../services/authService";
 
 const Registration = () => {
-  const { setIsLoggedIn } = useAuth();
+  const { register } = useAuthentication();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -21,10 +20,8 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const shouldRedirect = await register(formData, setIsLoggedIn); // Виклик функції register
-      if (shouldRedirect) {
-        setRedirect(true);
-      }
+      const shouldRedirect = await register(formData);
+      setRedirect(shouldRedirect);
     } catch (error) {
       console.error("Error:", error);
     }

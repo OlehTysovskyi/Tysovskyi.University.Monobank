@@ -50,19 +50,6 @@ async function createCard(req, res) {
   }
 }
 
-const getUserCards = async (req, res) => {
-  const user_id = req.params.userId;
-
-  try {
-    const cards = await Card.findAll({ where: { user_id: user_id } });
-    console.error(cards);
-    res.status(200).send({ cards: cards });
-  } catch (error) {
-    console.error("Error while fetching user cards:", error);
-    res.status(500).json({ error: "Error while fetching user cards" });
-  }
-};
-
 const getCardById = async (req, res) => {
   const card_id = req.params.cardId;
 
@@ -78,6 +65,19 @@ const getCardById = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Error fetching card" });
+  }
+};
+
+const getUserCards = async (req, res) => {
+  const user_id = req.params.userId;
+
+  try {
+    const cards = await Card.getUserCards(user_id);
+    console.error(cards);
+    res.status(200).send({ cards: cards });
+  } catch (error) {
+    console.error("Error while fetching user cards:", error);
+    res.status(500).json({ error: "Error while fetching user cards" });
   }
 };
 

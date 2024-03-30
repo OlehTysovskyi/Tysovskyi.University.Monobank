@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
 import GoogleAuthButton from "../components/GoogleAuthButton";
-import { useAuth } from "../contexts/authContext";
-import { login } from "../services/authService";
+import { useAuthentication } from "../services/authService";
 
 const Login = () => {
-  const { setIsLoggedIn, setUserId } = useAuth();
+  const { login } = useAuthentication();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -20,10 +19,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const shouldRedirect = await login(formData, setIsLoggedIn, setUserId);
-      if (shouldRedirect) {
-        setRedirect(true);
-      }
+      const shouldRedirect = await login(formData);
+      setRedirect(shouldRedirect);
     } catch (error) {
       console.error("Error:", error);
     }

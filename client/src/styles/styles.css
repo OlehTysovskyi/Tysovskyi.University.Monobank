@@ -1,3 +1,6 @@
+@import url("create-transfer.css");
+
+
 body {
   background-color: rgb(225, 225, 225);
 }
@@ -158,6 +161,14 @@ body {
   border-radius: 50%;
 }
 
+.logout-btn {
+  width: 100%;
+  height: 7vh;
+  border-radius: 1.5vh;
+  background-color: rgb(85, 84, 198);
+  color: white;
+}
+
 .dashboard .funds-box {
   width: 100%;
 }
@@ -211,6 +222,7 @@ body {
 .trans-hist {
   width: 100%;
   height: fit-content;
+  min-height: 40vh;
   padding: 1vw 1vw 0;
   
   border-top-left-radius: 1.2vw;

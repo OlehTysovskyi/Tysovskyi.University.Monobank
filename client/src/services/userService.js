@@ -31,6 +31,21 @@ export const getUserCards = async (userId) => {
   }
 };
 
+export const getUserTransfers = async (userId) => {
+  try {
+    const response = await fetch(`/api/get-user-transfers/${userId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user cards");
+    }
+    const data = await response.json();
+    return(data.transfers);
+  } catch (error) {
+    console.error("Error fetching user cards:", error);
+  }
+};
+
+
+
 const userService = {
   getUserData,
   getUserCards,

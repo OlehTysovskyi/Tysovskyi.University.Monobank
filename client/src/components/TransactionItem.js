@@ -1,13 +1,22 @@
 import React from "react";
 
-const TransactionItem = ({ avatar, username, amount }) => {
+const TransactionItem = ({ transfer, onClick }) => {
+  const handleItemClick = () => {
+    onClick(transfer);
+  };
+
+  const amountWithSign =
+    transfer.type === "OUTGOING"
+      ? "-" + transfer.amount
+      : "+" + transfer.amount;
+
   return (
-    <div className="trans-item">
+    <div className="trans-item" onClick={handleItemClick}>
       <div className="user-data">
         <div className="avatar"></div>
-        <div className="username">oleh</div>
+        <div className="username">{transfer.sender_username}</div>
       </div>
-      <div className="amount">-1500.00</div>
+      <div className="amount">{amountWithSign}</div>
     </div>
   );
 };

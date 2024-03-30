@@ -1,23 +1,12 @@
 import React, { useEffect } from "react";
 import Dashboard from "../components/Dashboard";
 import TransactionHistory from "../components/TransactionHistory";
-import { useAuth } from "../contexts/authContext";
-import { handleGoogleLogin } from "../services/googleAuthService";
+import { useAuthentication } from "../services/authService";
 
 const Account = () => {
-  const { userId, cardId, setIsLoggedIn, setUserId } = useAuth();
+  const { fetchUserProfile } = useAuthentication();
 
-  useEffect(() => {
-    const loginWithGoogle = async () => {
-      try {
-        await handleGoogleLogin({ userId, setUserId, setIsLoggedIn });
-      } catch (error) {
-        console.error("Error logging in with Google:", error);
-      }
-    };
-
-    loginWithGoogle();
-  }, [userId]);
+  fetchUserProfile();
 
   return (
     <>

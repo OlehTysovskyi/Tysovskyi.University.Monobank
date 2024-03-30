@@ -4,13 +4,14 @@ import { useAuth } from "../contexts/authContext";
 import { getUserCards } from "../services/userService";
 
 const Cards = () => {
-  const { userId, setCardId } = useAuth();
+  const { currentUser, setCurrentCard } = useAuth();
   const [cards, setCards] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cardsData = await getUserCards(userId);
+        const cardsData = await getUserCards(JSON.parse(currentUser).id);
         setCards(cardsData);
       } catch (error) {
         console.error("Error fetching user cards:", error);
@@ -18,10 +19,11 @@ const Cards = () => {
     };
 
     fetchData();
-  }, [userId]);
+  }, []);
 
-  const handleCardClick = (cardId) => {
-    setCardId(cardId);
+  const handleCardClick = (card) => {
+    setSelectedCard(card);
+    setCurrentCard(JSON.stringify(card));
   };
 
   return (
@@ -33,7 +35,10 @@ const Cards = () => {
       <div className="cards-container">
         {cards.map((card) => (
           <NavLink key={card.id} to="/">
-            <div className="card" onClick={() => handleCardClick(card.id)}>
+            <div
+              className={`card ${selectedCard && selectedCard.id === card.id ? "selected" : ""}`}
+              onClick={() => handleCardClick(card)}
+            >
               <div className="card-content">
                 <div>Type: {card.type}</div>
                 <div className="account-number">{card.number}</div>

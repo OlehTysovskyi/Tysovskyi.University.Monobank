@@ -32,7 +32,7 @@ const Card = sequelize.define(
       allowNull: false,
     },
     type: {
-      type: DataTypes.ENUM('BLACK', 'WHITE', 'CHILD'),
+      type: DataTypes.ENUM("BLACK", "WHITE", "CHILD"),
       allowNull: false,
     },
     balance: {
@@ -57,5 +57,53 @@ Card.beforeCreate((card) => {
   };
   card.credit_limit = cardTypes[card.type];
 });
+
+Card.getUserCurrentCard = async (userId) => {
+  try {
+    let card = await Card.findOne({
+      where: {
+        user_id: userId,
+        type: "BLACK",
+      },
+    });
+
+    if (!card) {
+      card = await Card.findOne({
+        where: {
+          user_id: userId,
+          type: "WHITE",
+        },
+      });
+    }
+
+    if (!card) {
+      card = await Card.findOne({
+        where: {
+          user_id: userId,
+          type: "CHILD",
+        },
+      });
+    }
+
+    return card;
+  } catch (error) {
+    console.error("Error fetching user card:", error);
+    throw error;
+  }
+};
+
+Card.getUserCards = async (userId) => {
+  try {
+    let cards = await Card.findAll({
+      where: {
+        user_id: userId,
+      },
+    });
+    return cards;
+  } catch (error) {
+    console.error("Error fetching user cards:", error);
+    throw error;
+  }
+};
 
 module.exports = Card;
