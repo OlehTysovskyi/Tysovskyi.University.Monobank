@@ -98,7 +98,7 @@ The project's implementation timeline follows a structured approach, divided int
 
 ### Week 5
 - [x] Implement feature: Bill Payments
-- [ ] Implement welcome email notification for new users
+- [x] Implement welcome email notification for new users
 - [ ] Configure Service Bus for message processing
 - [x] Update Readme.md with comprehensive documentation
 - [ ] Increase unit test coverage to meet requirements
