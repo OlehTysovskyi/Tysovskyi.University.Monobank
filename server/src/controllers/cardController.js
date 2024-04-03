@@ -1,5 +1,7 @@
 const Card = require("../models/card");
 
+const User = require("../models/user");
+
 async function generateUniqueCardNumber() {
   const cardLength = 16;
   const characters = "0123456789";
@@ -73,7 +75,6 @@ const getUserCards = async (req, res) => {
 
   try {
     const cards = await Card.getUserCards(user_id);
-    console.error(cards);
     res.status(200).send({ cards: cards });
   } catch (error) {
     console.error("Error while fetching user cards:", error);
@@ -81,8 +82,48 @@ const getUserCards = async (req, res) => {
   }
 };
 
+const getUsernameByCardNum = async (card_number) => {
+  try {
+    const card = await Card.findOne({ where: { number: card_number } });
+    if (!card) {
+      throw new Error("Card not found");
+    }
+
+    const user = await User.findOne({ where: { id: card.user_id } });
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    return user.username;
+  } catch (error) {
+    console.error("Error while fetching username:", error);
+    throw new Error("Error while fetching username");
+  }
+};
+
+const updateBalance = async (req, res) => {
+  const { sender_card_num, amount } = req.body;
+  console.error("sender_card_num:", sender_card_num, "amount:", amount);
+
+  try {
+    const card = await Card.findOne({ where: { number: sender_card_num } });
+    if (!card) {
+      throw new Error("Card not found");
+    }
+
+    card.balance -= amount;
+    await card.save();
+
+    res.status(201).json({ card: card });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
 module.exports = {
   createCard,
   getUserCards,
   getCardById,
+  getUsernameByCardNum,
+  updateBalance,
 };

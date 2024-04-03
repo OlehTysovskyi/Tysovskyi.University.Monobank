@@ -1,6 +1,6 @@
 const express = require("express");
-const session = require('express-session');
-const passport = require('passport');
+const session = require("express-session");
+const passport = require("passport");
 const cors = require("cors");
 const app = express();
 
@@ -9,9 +9,9 @@ app.use(express.json());
 
 app.use(
   cors({
-      origin: 'http://localhost:3000',
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-      credentials: true,
+    origin: "http://localhost:3000",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
   })
 );
 
@@ -32,5 +32,5 @@ app.listen(PORT, () => {
 const { testConnection } = require("../config/database");
 testConnection();
 
-const createTables = require("./utils/createTables")
+const createTables = require("./utils/createTables");
 createTables();

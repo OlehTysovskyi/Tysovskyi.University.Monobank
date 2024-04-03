@@ -10,8 +10,8 @@ const Dashboard = () => {
     localStorage.clear();
   };
 
-  const user = JSON.parse(currentUser);
-  const card = JSON.parse(currentCard);
+  const user = currentUser ? JSON.parse(currentUser) : null;
+  const card = currentCard ? JSON.parse(currentCard) : null;
 
   return (
     <div className="dashboard">
@@ -49,14 +49,14 @@ const Dashboard = () => {
             на картку
           </div>
         </NavLink>
-        <div className="btn-container">
+        <NavLink className="btn-container" key="other-payment" to="/other-payments">
           <button className="btn">+</button>
           <div className="btn-text">
             Інші
             <br />
             платежі
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   );

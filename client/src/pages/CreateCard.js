@@ -1,31 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navigate, NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
-import { createCard } from "../services/cardService";
+import { useCardService } from "../services/cardService";
 
 const CreateCard = () => {
-  const { userId } = useAuth();
+  const { currentUser } = useAuth();
+  const { createCard, getUserCards } = useCardService();
+  const user = JSON.parse(currentUser);
 
-  const [formData, setFormData] = useState({
-    user_id: userId,
-    type: "BLACK",
-    balance: 0,
-  });
-
+  const [userCards, setUserCards] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [cardsLoaded, setCardsLoaded] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    const fetchUserCards = async () => {
+      const cards = await getUserCards(user.id);
+      setUserCards(cards);
+      setCardsLoaded(true);
+    };
 
-  const handleCreatingAccount = async (e) => {
-    e.preventDefault();
+    fetchUserCards();
+  }, [getUserCards, user.id]);
 
-    try {
-      await createCard(formData);
-      setRedirect(true);
-    } catch (error) {
-      alert(error.message);
+  const handleCreatingCard = async (type) => {
+    if (
+      userCards.some((card) => card.type === "BLACK" || card.type === "WHITE")
+    ) {
+      setShowMessage(true);
+    } else {
+      try {
+        await createCard({ user_id: user.id, type: type, balance: 0 });
+        setRedirect(true);
+      } catch (error) {
+        alert(error.message);
+      }
     }
   };
 
@@ -34,43 +43,39 @@ const CreateCard = () => {
   }
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <form
-        onSubmit={handleCreatingAccount}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <select
-          name="type"
-          value={formData.type}
-          onChange={handleChange}
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        >
-          <option value="BLACK">BLACK</option>
-          <option value="WHITE">WHITE</option>
-          <option value="CHILD">CHILD</option>
-        </select>
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            fontSize: "1rem",
-            backgroundColor: "black",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Create card
-        </button>
-      </form>
-      <p>
-        <NavLink to="/">Go back</NavLink>
-      </p>
+    <div className="create-card">
+      <NavLink className="back-btn" to="/cards-and-accounts">
+        -
+      </NavLink>
+      <div className="header">Відкрити картку або рахунок</div>
+      <div className="cards-container">
+        {cardsLoaded && (
+          <React.Fragment>
+            <div className="container-header">Картки</div>
+            {!userCards.some((card) => card.type === "BLACK") && (
+              <div
+                className="card black-card"
+                onClick={() => handleCreatingCard("BLACK")}
+              >
+                <div className="stripe"></div>
+                <div className="stripe"></div>
+                Створити чорну картку
+              </div>
+            )}
+            {!userCards.some((card) => card.type === "WHITE") && (
+              <div
+                className="card white-card"
+                onClick={() => handleCreatingCard("WHITE")}
+              >
+                <div className="stripe"></div>
+                <div className="stripe"></div>
+                Створити білу картку
+              </div>
+            )}
+          </React.Fragment>
+        )}
+      </div>
+      {showMessage && <div>Немає доступних карток для створення</div>}
     </div>
   );
 };

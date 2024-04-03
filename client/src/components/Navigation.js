@@ -12,6 +12,8 @@ import Account from "../pages/Account";
 import CreateCard from "../pages/CreateCard";
 import CreateTransfer from "../pages/CreateTransfer";
 import CardsAndAccounts from "../pages/CardsAndAccounts";
+import OtherPayments from "../pages/OtherPayments";
+import IBANPayment from "../pages/IBANPayment";
 
 import { useAuth } from "../contexts/authContext";
 
@@ -26,9 +28,11 @@ const Navigation = () => {
             index
             element={isLoggedIn ? <Account /> : <Navigate to="/login" />}
           />
-          <Route path="/create-card" element={<CreateCard />} />
+          <Route path="/create-card-or-account" element={<CreateCard />} />
           <Route path="/create-transfer" element={<CreateTransfer />} />
           <Route path="/cards-and-accounts" element={<CardsAndAccounts />} />
+          <Route path="/other-payments" element={<OtherPayments />} />
+          <Route path="/iban-payment" element={<IBANPayment />} />
         </Route>
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />

@@ -3,9 +3,12 @@ import GoogleButton from "react-google-button";
 import { useAuthentication } from "../services/authService";
 
 const GoogleAuthButton = () => {
-  const { handleGoogleLogin } = useAuthentication();
+  const { handleGoogleLogin, fetchUserProfile } = useAuthentication();
+
+  fetchUserProfile();
   const handleClick = () => {
     handleGoogleLogin();
+    fetchUserProfile();
   };
 
   return <GoogleButton onClick={handleClick} />;

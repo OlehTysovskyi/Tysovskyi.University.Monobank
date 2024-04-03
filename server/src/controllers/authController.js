@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const User = require("../models/user");
 const Card = require("../models/card");
+const { sendEmail } = require("../utils/sendEmail");
 
 router.use(express.json());
 
@@ -23,7 +24,11 @@ const loginUser = async (req, res) => {
 
     const currentCard = await Card.getUserCurrentCard(user.id);
 
-    res.status(200).json({ message: "Login successful", user: { id: user.id, username: user.username, email: user.email }, currentCard: currentCard });
+    res.status(200).json({
+      message: "Login successful",
+      user: { id: user.id, username: user.username, email: user.email },
+      currentCard: currentCard,
+    });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ error: "Error logging in" });
@@ -46,6 +51,9 @@ const registerUser = async (req, res) => {
       email: email,
       password_hash: hashedPassword,
     });
+
+    await sendEmail(email);
+
     res
       .status(201)
       .json({ message: "User registered successfully", user: user });

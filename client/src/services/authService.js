@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
 
 export const useAuthentication = () => {
@@ -92,7 +91,6 @@ export const useAuthentication = () => {
       }
 
       const data = await response.json();
-      console.error(data);
       setCurrentUser(JSON.stringify(data.user));
       setCurrentCard(JSON.stringify(data.currentCard));
       return data;

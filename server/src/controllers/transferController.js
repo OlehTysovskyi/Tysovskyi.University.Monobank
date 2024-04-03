@@ -1,6 +1,7 @@
 const Transfer = require("../models/transfer");
 const Card = require("../models/card");
 const { Op } = require("sequelize");
+const { getUsernameByCardNum } = require("../controllers/cardController");
 
 async function createTransfer(req, res) {
   const { sender_card_num, recipient_card_num, amount } = req.body;
@@ -63,16 +64,26 @@ const getUserTransfers = async (req, res) => {
           { recipient_card_num: { [Op.in]: cardNumbers } },
         ],
       },
+      order: [["createdAt", "DESC"]],
     });
 
-    const transfersWithOperationType = transfers.map((transfer) => {
-      const isSenderCard = cardNumbers.includes(transfer.sender_card_num);
-      const type = isSenderCard ? "OUTGOING" : "INCOMING";
-      return { ...transfer.toJSON(), type };
-    });
+    const transfersWithOperationTypeAndUsername = await Promise.all(
+      transfers.map(async (transfer) => {
+        const isSenderCard = cardNumbers.includes(transfer.sender_card_num);
+        const type = isSenderCard ? "OUTGOING" : "INCOMING";
+        let username = "";
 
-    console.log(transfersWithOperationType);
-    res.status(200).send({ transfers: transfersWithOperationType });
+        if (type === "OUTGOING") {
+          username = await getUsernameByCardNum(transfer.recipient_card_num);
+        } else if (type === "INCOMING") {
+          username = await getUsernameByCardNum(transfer.sender_card_num);
+        }
+
+        return { ...transfer.toJSON(), type, username };
+      })
+    );
+
+    res.status(200).send({ transfers: transfersWithOperationTypeAndUsername });
   } catch (error) {
     console.error("Error while fetching user transfers:", error);
     res.status(500).json({ error: "Error while fetching user transfers" });

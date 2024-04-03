@@ -32,7 +32,7 @@ const Card = sequelize.define(
       allowNull: false,
     },
     type: {
-      type: DataTypes.ENUM("BLACK", "WHITE", "CHILD"),
+      type: DataTypes.ENUM("BLACK", "WHITE"),
       allowNull: false,
     },
     balance: {
@@ -53,7 +53,6 @@ Card.beforeCreate((card) => {
   const cardTypes = {
     BLACK: 100000,
     WHITE: null,
-    CHILD: 0,
   };
   card.credit_limit = cardTypes[card.type];
 });
@@ -72,15 +71,6 @@ Card.getUserCurrentCard = async (userId) => {
         where: {
           user_id: userId,
           type: "WHITE",
-        },
-      });
-    }
-
-    if (!card) {
-      card = await Card.findOne({
-        where: {
-          user_id: userId,
-          type: "CHILD",
         },
       });
     }

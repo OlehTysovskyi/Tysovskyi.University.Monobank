@@ -36,7 +36,14 @@ const Navbar = () => {
           title="Головна"
           alt="Головна"
         />
-        <NavLink key="home" to="/create-card">
+        <img
+          className="nav-icon"
+          src={homeIcon}
+          width="30px"
+          title="Головна"
+          alt="Головна"
+        />
+        {/* <NavLink key="home" to="/">
           <img
             className="nav-icon"
             src={homeIcon}
@@ -44,7 +51,7 @@ const Navbar = () => {
             title="Create account"
             alt="Головна"
           />
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink key="home" to="/">
           <img
             className="nav-icon"

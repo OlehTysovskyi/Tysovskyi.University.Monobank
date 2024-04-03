@@ -3,29 +3,41 @@ import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
 import { useCardService } from "../services/cardService";
-import { createTransfer } from "../services/transferService";
 
-const CreateTransfer = () => {
+const IBANPayment = () => {
   const { currentCard } = useAuth();
   const { updateBalance } = useCardService();
 
   const [formData, setFormData] = useState({
     sender_card_num: JSON.parse(currentCard).number,
-    recipient_card_num: "",
     amount: 0,
   });
 
   const [redirect, setRedirect] = useState(false);
+  const [isValidIBAN, setIsValidIBAN] = useState(false);
+  const [isAmountEntered, setIsAmountEntered] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    if (name === "amount") {
+      setIsAmountEntered(value.trim().length > 0);
+    } else if (name === "iban") {
+      setIsValidIBAN(validateIBAN(value));
+    }
   };
 
   const handleCreatingTransfer = async (e) => {
     e.preventDefault();
 
-    if (formData.recipient_card_num === "") {
-      alert("Уведіть номер картки");
+    if (formData.iban === "") {
+      alert("Уведіть номер IBAN");
+      return;
+    }
+
+    if (!isValidIBAN) {
+      alert("Неправильний формат IBAN");
       return;
     }
 
@@ -35,12 +47,16 @@ const CreateTransfer = () => {
     }
 
     try {
-      await updateBalance(formData);
-      const shouldRedirect = await createTransfer(formData);
+      const shouldRedirect = updateBalance(formData);
       setRedirect(shouldRedirect);
     } catch (error) {
       alert(error.message);
     }
+  };
+
+  const validateIBAN = (iban) => {
+    const ibanPattern = /^[A-Z]{2}\d{2}[A-Z\d]{4}\d{7}([A-Z\d]?){0,16}$/;
+    return ibanPattern.test(iban);
   };
 
   if (redirect) {
@@ -48,20 +64,20 @@ const CreateTransfer = () => {
   }
 
   return (
-    <form onSubmit={handleCreatingTransfer} className="create-transfer">
+    <form onSubmit={handleCreatingTransfer} className="iban-payment">
       <div className="header">
-        <NavLink className="back-btn" to="/">
+        <NavLink className="back-btn" to="/other-payments">
           -
         </NavLink>
-        <div className="text">Переказ на картку</div>
+        <div className="text">Платіж за IBAN</div>
         <input
           type="text"
-          name="recipient_card_num"
-          value={formData.recipient_card_num}
+          name="iban"
+          value={formData.iban || ""}
           onChange={handleChange}
-          placeholder="Уведіть ім'я, номер картки або телефону"
-          className="card-num-input"
-          autocomplete="on"
+          placeholder="Уведіть IBAN"
+          className="iban-input"
+          autoComplete="on"
         />
       </div>
       <input
@@ -71,11 +87,15 @@ const CreateTransfer = () => {
         onChange={handleChange}
         className="amount-input"
       />
-      <button type="submit" className="submit-btn">
+      <button
+        type="submit"
+        className="submit-btn"
+        disabled={!isValidIBAN || !isAmountEntered}
+      >
         Надіслати
       </button>
     </form>
   );
 };
 
-export default CreateTransfer;
+export default IBANPayment;

@@ -9,12 +9,12 @@ const {
   createCard,
   getUserCards,
   getCardById,
+  updateBalance,
 } = require("../controllers/cardController");
 const {
   createTransfer,
   getUserTransfers,
 } = require("../controllers/transferController");
-const { isLoggedIn } = require("../utils/loginUtil");
 
 router.post("/api/register", registerUser);
 router.post("/api/login", loginUser);
@@ -23,6 +23,7 @@ router.get("/api/get-user-by-id/:userId", getUserById);
 router.post("/api/create-card", createCard);
 router.get("/api/get-user-cards/:userId", getUserCards);
 router.get("/api/get-card-by-id/:cardId", getCardById);
+router.post("/api/update-balance", updateBalance);
 
 router.post("/api/create-transfer", createTransfer);
 router.get("/api/get-user-transfers/:userId", getUserTransfers);
