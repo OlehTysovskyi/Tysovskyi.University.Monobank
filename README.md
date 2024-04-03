@@ -1,3 +1,5 @@
+# Monobank Project
+
 ## Author
 
 - Oleh Tysovskyi
@@ -9,13 +11,13 @@
 To get started with this project:
 
 1. Clone the repository from GitHub.
-2. Install all dependencies using **'npm install'**.
+2. Install all dependencies using `npm install`.
 3. Set up the necessary configurations for your environment.
-4. Run the project using **'npm start'** in the **'server'** directory and then the same in **'client'**.
+4. Run the project using `npm start` in the `server` directory and then the same in `client`.
 
 ## Project Documentation
 
-Welcome to the documentation for the Monobank project. This document provides an overview of the project, its features, technologies used, and implementation timeline.
+Welcome to the documentation for the Monobank project. This document provides an overview of the project, its features, technologies used, implementation timeline, and additional information.
 
 ### Project Overview
 
@@ -93,5 +95,25 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Set up Storage Account on Azure for data storage
 - [x] Refine architecture and infrastructure diagrams
 - [x] Continue unit testing and code review
+
+### Week 5
+- [x] Implement feature: Bill Payments
+- [x] Implement welcome email notification for new users
+- [ ] Configure Service Bus for message processing
+- [x] Update Readme.md with comprehensive documentation
+- [ ] Increase unit test coverage to meet requirements
+
+### Week 6
+- [ ] Implement feature: Loan Application
+- [ ] Optimize application for Chrome PC browsers
+- [ ] Conduct postman testing for API endpoints
+- [ ] Review and refine code for clean coding principles
+- [ ] Perform integration testing and bug fixes
+
+### Additional Information
+
+- **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
+
+- **Acknowledgements:** We would like to thank all contributors and supporters of the Monobank project for their valuable contributions and feedback.
 
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
