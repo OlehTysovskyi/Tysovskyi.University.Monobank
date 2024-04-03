@@ -114,8 +114,6 @@ The project's implementation timeline follows a structured approach, divided int
 
 - **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
 
-- **License:** This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
 - **Acknowledgements:** We would like to thank all contributors and supporters of the Monobank project for their valuable contributions and feedback.
 
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
