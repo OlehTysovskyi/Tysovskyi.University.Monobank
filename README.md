@@ -110,6 +110,13 @@ The project's implementation timeline follows a structured approach, divided int
 - [ ] Review and refine code for clean coding principles
 - [ ] Perform integration testing and bug fixes
 
+### Week 7
+- [x] Implement feature: Savings Goals
+- [ ] Fine-tune budgeting tools functionality
+- [ ] Enhance user interface for improved usability
+- [ ] Conduct load testing to assess performance
+- [x] Address any remaining issues identified through testing
+
 ### Additional Information
 
 - **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
