@@ -113,9 +113,9 @@ The project's implementation timeline follows a structured approach, divided int
 ### Week 7
 - [x] Implement feature: Savings Goals
 - [ ] Fine-tune budgeting tools functionality
-- [ ] Enhance user interface for improved usability
+- [x] Enhance user interface for improved usability
 - [ ] Conduct load testing to assess performance
-- [x] Address any remaining issues identified through testing
+- [ ] Address any remaining issues identified through testing
 
 ### Additional Information
 
