@@ -117,6 +117,13 @@ The project's implementation timeline follows a structured approach, divided int
 - [ ] Conduct load testing to assess performance
 - [x] Address any remaining issues identified through testing
 
+### Week 8
+- [x] Implement feature: Customer Support
+- [ ] Configure automated deployment to Azure
+- [x] Perform final security audit and penetration testing
+- [x] Conduct user acceptance testing
+- [ ] Prepare for production deployment
+
 ### Additional Information
 
 - **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
