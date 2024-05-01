@@ -200,3 +200,20 @@
   - Collaborated with stakeholders and end users to define user acceptance criteria and test scenarios.
   - Conducted user acceptance testing sessions to validate product functionality and usability.
   - Solicited feedback from users and stakeholders to ensure alignment with business requirements and user expectations.
+ 
+  ## Week 9
+
+- **Application Performance and Stability Monitored**
+  - Utilized monitoring tools and performance metrics to assess application performance and stability.
+  - Identified and addressed performance bottlenecks and areas of improvement.
+  - Implemented optimizations and enhancements to improve overall system reliability and responsiveness.
+
+- **Release Notes Prepared for Production Deployment**
+  - Compiled detailed release notes documenting changes, fixes, and improvements made during the development cycle.
+  - Reviewed and finalized release notes for distribution to stakeholders and end users.
+  - Ensured clarity and transparency in communication regarding the upcoming production deployment.
+
+- **Final Review and Validation Checks Conducted**
+  - Conducted a final review of implemented features to ensure alignment with project requirements.
+  - Performed validation checks and testing to verify the functionality and integrity of the application.
+  - Addressed any outstanding issues or discrepancies identified during the validation process.
