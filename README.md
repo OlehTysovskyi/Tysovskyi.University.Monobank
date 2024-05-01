@@ -124,6 +124,13 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Conduct user acceptance testing
 - [ ] Prepare for production deployment
 
+### Week 9
+- [ ] Implement feature: Security Features
+- [x] Monitor application performance and stability
+- [ ] Gather user feedback and iterate on features as needed
+- [x] Prepare release notes for production deployment
+- [x] Conduct final review and validation checks
+
 ### Additional Information
 
 - **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
