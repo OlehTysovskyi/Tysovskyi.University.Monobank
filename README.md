@@ -131,6 +131,13 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Prepare release notes for production deployment
 - [x] Conduct final review and validation checks
 
+### Week 10
+- [ ] Implement feature: Notifications
+- [x] Deploy application to production environment in Azure
+- [x] Monitor production environment for any issues
+- [x] Provide support and assistance for users as needed
+- [x] Begin planning for future enhancements and updates
+
 ### Additional Information
 
 - **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
