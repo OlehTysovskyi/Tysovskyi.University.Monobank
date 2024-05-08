@@ -217,3 +217,28 @@
   - Conducted a final review of implemented features to ensure alignment with project requirements.
   - Performed validation checks and testing to verify the functionality and integrity of the application.
   - Addressed any outstanding issues or discrepancies identified during the validation process.
+ 
+  ## Week 10
+
+- **Feature Implementation: Notifications**
+  - Researched user preferences and requirements for notification functionality.
+  - Designed and developed notification feature to keep users informed of important updates and events.
+  - Conducted thorough testing to ensure proper functioning and compatibility across different platforms and devices.
+
+- **Application Deployment to Azure Production Environment**
+  - Successfully deployed the application to the production environment in Azure.
+  - Configured deployment pipelines and automated processes to streamline deployment.
+  - Verified accessibility and functionality of the application post-deployment.
+
+- **Production Environment Monitoring**
+  - Implemented monitoring tools and established performance metrics to monitor the production environment.
+  - Conducted regular monitoring to detect any issues or anomalies and took proactive measures to address them.
+
+- **User Support and Assistance**
+  - Provided timely support and assistance to users as needed, addressing inquiries and resolving issues promptly.
+  - Ensured users had a positive experience with the application and received adequate support when required.
+
+- **Future Enhancements and Updates Planning**
+  - Initiated discussions and brainstorming sessions to identify potential enhancements and updates for the application.
+  - Gathered feedback from users and stakeholders to prioritize future development efforts.
+  - Started outlining plans and strategies for implementing upcoming enhancements and updates to further improve the application.
