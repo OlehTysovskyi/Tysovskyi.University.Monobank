@@ -132,7 +132,7 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Conduct final review and validation checks
 
 ### Week 10
-- [ ] Implement feature: Notifications
+- [x] Implement feature: Notifications
 - [x] Deploy application to production environment in Azure
 - [x] Monitor production environment for any issues
 - [x] Provide support and assistance for users as needed
