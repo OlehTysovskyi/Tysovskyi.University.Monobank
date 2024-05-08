@@ -145,3 +145,51 @@ The project's implementation timeline follows a structured approach, divided int
 - **Acknowledgements:** We would like to thank all contributors and supporters of the Monobank project for their valuable contributions and feedback.
 
 This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
+
+### Future enhancements and updates
+
+### 1. Mobile Application:
+- Understand what users want from a mobile app and what features they expect.
+- Start designing the mobile app, focusing on creating an interface that's easy to use on smartphones and tablets.
+- Bring in mobile app developers to build the app's functionality.
+- Test the mobile app extensively to ensure it works well on different devices and screen sizes.
+- Release the mobile app for iOS and Android platforms after thorough testing and feedback.
+
+### 2. Automatic Account Replenishment:
+- Find out if users are interested in automatic account replenishment and what their preferences are.
+- Develop a system for automatic account replenishment that takes into account security requirements and user convenience.
+- Integrate this functionality with payment systems and bank accounts.
+- Allow users to customize their automatic replenishment settings through the web platform or mobile app.
+- Test and optimize the automatic replenishment system before rolling it out to production.
+
+### 3. Multi-Currency Operations Support:
+- Investigate whether users need support for multi-currency operations and if it aligns with your app's goals.
+- Design mechanisms for handling transactions in different currencies, considering exchange rates and fees.
+- Integrate with financial services and banks to support multi-currency operations.
+- Provide users with the ability to manage multi-currency operations through the app's interface.
+- Test the multi-currency operation system thoroughly to ensure it's reliable and user-friendly before releasing it to users.
+
+### 4. Optimize for Dark Mode:
+- Research user preferences regarding dark mode.
+- Design a new interface optimized for dark mode that's easy to use in low light.
+- Test the new design on various devices and screen resolutions.
+- Release an app update with dark mode support and inform users about the new option.
+
+### 5. Language Change Feature:
+- Research user preferences for language options.
+- Implement language selection feature.
+- Test language change functionality across devices.
+- Release app update with language change feature.
+
+### 6. Support for Smart Payment Systems:
+- Explore integration possibilities with smart payment systems like Apple Pay or Google Pay.
+- Develop interfaces for interacting with these systems that are convenient and secure for users.
+- Test the integration with smart payment systems and ensure compatibility with different devices and operating systems.
+- Release an app update with support for smart payment systems and notify users about the new feature.
+
+### 7. Customer Support Chatbots:
+- Analyze user needs and determine the best way to implement chatbot support.
+- Choose a platform for chatbot development, such as Facebook Messenger, Telegram, or Slack.
+- Develop a chatbot that can answer common user questions, provide information about the app's functionality, and assist with problem-solving.
+- Test and fine-tune the chatbot before integrating it into the app.
+- Release an app update with chatbot support and inform users about the new option for getting help via chat.
