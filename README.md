@@ -138,6 +138,20 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Provide support and assistance for users as needed
 - [x] Begin planning for future enhancements and updates
 
+### Week 11
+- [ ] Implement feature: Feedback Mechanism
+- [ ] Analyze user feedback and prioritize feature requests
+- [ ] Address any post-deployment issues or bugs
+- [ ] Document lessons learned and areas for improvement
+- [ ] Plan for ongoing maintenance and support
+
+### Week 12
+- [ ] Conduct project retrospective to review successes and challenges
+- [ ] Prepare final project report and documentation
+- [ ] Archive GitHub repository for future reference
+- [ ] Celebrate project completion and team achievements
+- [ ] Handover project to maintenance team for long-term management
+
 ### Additional Information
 
 - **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
