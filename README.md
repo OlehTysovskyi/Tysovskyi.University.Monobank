@@ -35,19 +35,17 @@ Monobank is a modern digital bank offering a range of banking services and finan
 
 5. **Bill Payments:** Monobank allows users to conveniently pay their bills directly from their accounts, eliminating the need for manual payment processing.
 
-6. **Loan Application:** Users can apply for various types of loans directly through the Monobank platform, streamlining the loan application and approval process.
+6. **Savings Goals:** Users can set savings goals and track their progress over time, helping them achieve their financial objectives more effectively.
 
-7. **Savings Goals:** Users can set savings goals and track their progress over time, helping them achieve their financial objectives more effectively.
+7. **Budgeting Tools:** Monobank provides users with tools and insights to create and manage budgets, empowering them to make smarter financial decisions.
 
-8. **Budgeting Tools:** Monobank provides users with tools and insights to create and manage budgets, empowering them to make smarter financial decisions.
+8. **Customer Support:** Users can access customer support directly from the application, enabling quick resolution of any issues or inquiries they may have.
 
-9. **Customer Support:** Users can access customer support directly from the application, enabling quick resolution of any issues or inquiries they may have.
+9. **Security Features:** Monobank implements robust security measures, including two-factor authentication and encryption, to safeguard user data and prevent unauthorized access.
 
-10. **Security Features:** Monobank implements robust security measures, including two-factor authentication and encryption, to safeguard user data and prevent unauthorized access.
+10. **Notifications:** Users receive real-time notifications for important account activities, such as deposits, withdrawals, and upcoming payments, keeping them informed at all times.
 
-11. **Notifications:** Users receive real-time notifications for important account activities, such as deposits, withdrawals, and upcoming payments, keeping them informed at all times.
-
-12. **Feedback Mechanism:** Monobank allows users to provide feedback and suggestions directly through the application, fostering continuous improvement and user satisfaction.
+11. **Feedback Mechanism:** Monobank allows users to provide feedback and suggestions directly through the application, fostering continuous improvement and user satisfaction.
 
 ### Technologies Used
 
@@ -55,7 +53,7 @@ Monobank is a modern digital bank offering a range of banking services and finan
 - **Backend:** Express
 - **Database ORM:** Sequelize
 - **Authentication:** Passport.js with Google OAuth 2.0
-- **Cloud Platform:** Azure
+- **Cloud Platform:** Vercel
 - **CI/CD:** GitHub Actions
 
 Using React for the frontend, Express for the backend, Sequelize for database operations, and Passport.js with Google OAuth 2.0 strategy for authentication provides a robust foundation for building a scalable, responsive, and secure digital banking application like Monobank.
@@ -105,10 +103,10 @@ The project's implementation timeline follows a structured approach, divided int
 
 ### Week 6
 - [ ] Implement feature: Loan Application
-- [ ] Optimize application for Chrome PC browsers
+- [x] Optimize application for Chrome PC browsers
 - [ ] Conduct postman testing for API endpoints
-- [ ] Review and refine code for clean coding principles
-- [ ] Perform integration testing and bug fixes
+- [x] Review and refine code for clean coding principles
+- [x] Perform integration testing and bug fixes
 
 ### Week 7
 - [x] Implement feature: Savings Goals
@@ -122,7 +120,7 @@ The project's implementation timeline follows a structured approach, divided int
 - [ ] Configure automated deployment to Azure
 - [x] Perform final security audit and penetration testing
 - [x] Conduct user acceptance testing
-- [ ] Prepare for production deployment
+- [x] Prepare for production deployment
 
 ### Week 9
 - [ ] Implement feature: Security Features
@@ -139,26 +137,18 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Begin planning for future enhancements and updates
 
 ### Week 11
-- [ ] Implement feature: Feedback Mechanism
-- [ ] Analyze user feedback and prioritize feature requests
-- [ ] Address any post-deployment issues or bugs
-- [ ] Document lessons learned and areas for improvement
-- [ ] Plan for ongoing maintenance and support
+- [x] Implement feature: Feedback Mechanism
+- [x] Analyze user feedback and prioritize feature requests
+- [x] Address any post-deployment issues or bugs
+- [x] Document lessons learned and areas for improvement
+- [x] Plan for ongoing maintenance and support
 
 ### Week 12
-- [ ] Conduct project retrospective to review successes and challenges
-- [ ] Prepare final project report and documentation
-- [ ] Archive GitHub repository for future reference
-- [ ] Celebrate project completion and team achievements
-- [ ] Handover project to maintenance team for long-term management
-
-### Additional Information
-
-- **Feedback and Contribution:** We welcome feedback and contributions from the community. If you have any suggestions or would like to contribute to the Monobank project, feel free to reach out to us via email or Telegram.
-
-- **Acknowledgements:** We would like to thank all contributors and supporters of the Monobank project for their valuable contributions and feedback.
-
-This comprehensive documentation provides insights into the Monobank project's features, technologies, and implementation approach, facilitating better understanding and collaboration among project stakeholders.
+- [x] Conduct project retrospective to review successes and challenges
+- [x] Prepare final project report and documentation
+- [x] Archive GitHub repository for future reference
+- [x] Celebrate project completion and team achievements
+- [x] Handover project to maintenance team for long-term management
 
 ### Future enhancements and updates
 
