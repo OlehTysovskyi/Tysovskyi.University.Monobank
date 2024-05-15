@@ -190,6 +190,8 @@ The project's implementation timeline follows a structured approach, divided int
 - Test and fine-tune the chatbot before integrating it into the app.
 - Release an app update with chatbot support and inform users about the new option for getting help via chat.
 
+--
+
 # Plan for Ongoing Maintenance and Support
 
 ## 1. Documentation Preparation
