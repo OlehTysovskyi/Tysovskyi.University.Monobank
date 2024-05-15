@@ -15,6 +15,8 @@ To get started with this project:
 3. Set up the necessary configurations for your environment.
 4. Run the project using `npm start` in the `server` directory and then the same in `client`.
 
+---
+
 # Project Documentation
 
 Welcome to the documentation for the Monobank project. This document provides an overview of the project, its features, technologies used, implementation timeline, and additional information.
@@ -47,6 +49,8 @@ Monobank is a modern digital bank offering a range of banking services and finan
 - **CI/CD**: GitHub Actions
 
 Using React for the frontend, Express for the backend, Sequelize for database operations, and Passport.js with Google OAuth 2.0 strategy for authentication provides a robust foundation for building a scalable, responsive, and secure digital banking application like Monobank.
+
+---
 
 # Implementation Timeline
 
@@ -135,6 +139,8 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Archive GitHub repository for future reference
 - [x] Celebrate project completion and team achievements
 - [x] Handover project to maintenance team for long-term management
+
+---
 
 # Future Enhancements and Updates
 
