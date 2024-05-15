@@ -278,17 +278,5 @@ The project's implementation timeline follows a structured approach, divided int
   - **Improvement 1**: Invest in training for new technologies and tools to reduce the learning curve.
   - **Improvement 2**: Regular code reviews and refactoring sessions to maintain code quality and performance.
 
-## Action Plan for Future Projects
-- **Action 1**: Develop comprehensive training programs for team members on new tools and technologies.
-- **Action 2**: Implement a more robust risk management framework with regular assessments and mitigation strategies.
-- **Action 3**: Initiate early and continuous performance testing to identify and address bottlenecks promptly.
-- **Action 4**: Enhance documentation practices to ensure clear and thorough project documentation is available at all stages.
-- **Action 5**: Allocate dedicated time for unit testing and quality assurance to meet coverage requirements.
-
 ## Conclusion
 The Monobank project was a significant success, with key achievements in user registration, account management, and security. However, challenges in CI/CD setup, integration, and performance testing highlighted areas for improvement. By addressing these issues through detailed planning, enhanced communication, proactive risk management, and continuous training, future projects can achieve even greater efficiency and quality.
-
-## Appendices
-- **Appendix A**: Survey Results
-- **Appendix B**: Meeting Notes
-- **Appendix C**: Performance Metrics
