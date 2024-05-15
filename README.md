@@ -25,36 +25,26 @@ Monobank is a modern digital bank offering a range of banking services and finan
 
 ## List of Application Features
 
-1. **User Registration:** Users can sign up for a Monobank account using their Google credentials or email, ensuring a secure and hassle-free registration process.
-
-2. **Account Dashboard:** Upon logging in, users are greeted with a personalized dashboard displaying an overview of their account balances, recent transactions, and other relevant information.
-
-3. **Transaction History:** Users can view a detailed history of their transactions, including date, amount, and transaction type, providing transparency and accountability.
-
-4. **Money Transfer:** Users can easily transfer funds between their accounts or to other Monobank users, facilitating seamless peer-to-peer transactions.
-
-5. **Bill Payments:** Monobank allows users to conveniently pay their bills directly from their accounts, eliminating the need for manual payment processing.
-
-6. **Savings Goals:** Users can set savings goals and track their progress over time, helping them achieve their financial objectives more effectively.
-
-7. **Budgeting Tools:** Monobank provides users with tools and insights to create and manage budgets, empowering them to make smarter financial decisions.
-
-8. **Customer Support:** Users can access customer support directly from the application, enabling quick resolution of any issues or inquiries they may have.
-
-9. **Security Features:** Monobank implements robust security measures, including two-factor authentication and encryption, to safeguard user data and prevent unauthorized access.
-
-10. **Notifications:** Users receive real-time notifications for important account activities, such as deposits, withdrawals, and upcoming payments, keeping them informed at all times.
-
-11. **Feedback Mechanism:** Monobank allows users to provide feedback and suggestions directly through the application, fostering continuous improvement and user satisfaction.
+1. **User Registration**: Users can sign up for a Monobank account using their Google credentials or email, ensuring a secure and hassle-free registration process.
+2. **Account Dashboard**: Upon logging in, users are greeted with a personalized dashboard displaying an overview of their account balances, recent transactions, and other relevant information.
+3. **Transaction History**: Users can view a detailed history of their transactions, including date, amount, and transaction type, providing transparency and accountability.
+4. **Money Transfer**: Users can easily transfer funds between their accounts or to other Monobank users, facilitating seamless peer-to-peer transactions.
+5. **Bill Payments**: Monobank allows users to conveniently pay their bills directly from their accounts, eliminating the need for manual payment processing.
+6. **Savings Goals**: Users can set savings goals and track their progress over time, helping them achieve their financial objectives more effectively.
+7. **Budgeting Tools**: Monobank provides users with tools and insights to create and manage budgets, empowering them to make smarter financial decisions.
+8. **Customer Support**: Users can access customer support directly from the application, enabling quick resolution of any issues or inquiries they may have.
+9. **Security Features**: Monobank implements robust security measures, including two-factor authentication and encryption, to safeguard user data and prevent unauthorized access.
+10. **Notifications**: Users receive real-time notifications for important account activities, such as deposits, withdrawals, and upcoming payments, keeping them informed at all times.
+11. **Feedback Mechanism**: Monobank allows users to provide feedback and suggestions directly through the application, fostering continuous improvement and user satisfaction.
 
 ## Technologies Used
 
-- **Frontend:** React
-- **Backend:** Express
-- **Database ORM:** Sequelize
-- **Authentication:** Passport.js with Google OAuth 2.0
-- **Cloud Platform:** Vercel
-- **CI/CD:** GitHub Actions
+- **Frontend**: React
+- **Backend**: Express
+- **Database ORM**: Sequelize
+- **Authentication**: Passport.js with Google OAuth 2.0
+- **Cloud Platform**: Vercel
+- **CI/CD**: GitHub Actions
 
 Using React for the frontend, Express for the backend, Sequelize for database operations, and Passport.js with Google OAuth 2.0 strategy for authentication provides a robust foundation for building a scalable, responsive, and secure digital banking application like Monobank.
 
@@ -63,7 +53,6 @@ Using React for the frontend, Express for the backend, Sequelize for database op
 The project's implementation timeline follows a structured approach, divided into several weeks. Each week focuses on implementing specific features, setting up necessary infrastructure, and ensuring the project's progress aligns with the overall goals.
 
 ### Week 1
-
 - [x] Implement feature: User Registration
 - [x] Set up Azure cloud environment
 - [x] Create GitHub repository
@@ -71,7 +60,6 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Draft Getting Started documentation
 
 ### Week 2
-
 - [x] Implement feature: Account Dashboard
 - [x] Set up SQL database on Azure
 - [x] Integrate Sequelize for database operations
@@ -79,7 +67,6 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Begin writing project documentation
 
 ### Week 3
-
 - [x] Implement feature: Transaction History
 - [x] Integrate Google OAuth 2.0 for user authorization
 - [ ] Implement 95% of code using services approach and Dependency Injection
@@ -87,7 +74,6 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Perform initial unit testing
 
 ### Week 4
-
 - [x] Implement feature: Money Transfer
 - [ ] Integrate open API for additional functionality
 - [x] Set up Storage Account on Azure for data storage
@@ -104,7 +90,7 @@ The project's implementation timeline follows a structured approach, divided int
 ### Week 6
 - [ ] Implement feature: Loan Application
 - [x] Optimize application for Chrome PC browsers
-- [ ] Conduct postman testing for API endpoints
+- [ ] Conduct Postman testing for API endpoints
 - [x] Review and refine code for clean coding principles
 - [x] Perform integration testing and bug fixes
 
@@ -150,48 +136,48 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Celebrate project completion and team achievements
 - [x] Handover project to maintenance team for long-term management
 
-# Future enhancements and updates
+# Future Enhancements and Updates
 
-### 1. Mobile Application:
+### 1. Mobile Application
 - Understand what users want from a mobile app and what features they expect.
 - Start designing the mobile app, focusing on creating an interface that's easy to use on smartphones and tablets.
 - Bring in mobile app developers to build the app's functionality.
 - Test the mobile app extensively to ensure it works well on different devices and screen sizes.
 - Release the mobile app for iOS and Android platforms after thorough testing and feedback.
 
-### 2. Automatic Account Replenishment:
+### 2. Automatic Account Replenishment
 - Find out if users are interested in automatic account replenishment and what their preferences are.
 - Develop a system for automatic account replenishment that takes into account security requirements and user convenience.
 - Integrate this functionality with payment systems and bank accounts.
 - Allow users to customize their automatic replenishment settings through the web platform or mobile app.
 - Test and optimize the automatic replenishment system before rolling it out to production.
 
-### 3. Multi-Currency Operations Support:
+### 3. Multi-Currency Operations Support
 - Investigate whether users need support for multi-currency operations and if it aligns with your app's goals.
 - Design mechanisms for handling transactions in different currencies, considering exchange rates and fees.
 - Integrate with financial services and banks to support multi-currency operations.
 - Provide users with the ability to manage multi-currency operations through the app's interface.
 - Test the multi-currency operation system thoroughly to ensure it's reliable and user-friendly before releasing it to users.
 
-### 4. Optimize for Dark Mode:
+### 4. Optimize for Dark Mode
 - Research user preferences regarding dark mode.
 - Design a new interface optimized for dark mode that's easy to use in low light.
 - Test the new design on various devices and screen resolutions.
 - Release an app update with dark mode support and inform users about the new option.
 
-### 5. Language Change Feature:
+### 5. Language Change Feature
 - Research user preferences for language options.
 - Implement language selection feature.
 - Test language change functionality across devices.
 - Release app update with language change feature.
 
-### 6. Support for Smart Payment Systems:
+### 6. Support for Smart Payment Systems
 - Explore integration possibilities with smart payment systems like Apple Pay or Google Pay.
 - Develop interfaces for interacting with these systems that are convenient and secure for users.
 - Test the integration with smart payment systems and ensure compatibility with different devices and operating systems.
 - Release an app update with support for smart payment systems and notify users about the new feature.
 
-### 7. Customer Support Chatbots:
+### 7. Customer Support Chatbots
 - Analyze user needs and determine the best way to implement chatbot support.
 - Choose a platform for chatbot development, such as Facebook Messenger, Telegram, or Slack.
 - Develop a chatbot that can answer common user questions, provide information about the app's functionality, and assist with problem-solving.
@@ -201,74 +187,100 @@ The project's implementation timeline follows a structured approach, divided int
 # Plan for Ongoing Maintenance and Support
 
 ## 1. Documentation Preparation
+
 ### Technical Documentation
-- **System Architecture**: Description of the main components and their interactions.
-- **Databases**: Database structure, including ER diagrams.
-- **API**: Documentation for all APIs, including methods, parameters, and usage examples.
-- **Code**: Detailed comments in the code, explanations of key algorithms and decisions.
+- **System Architecture**: Documentation of the overall architecture, including diagrams and explanations of each component.
+- **Database Schema**: Detailed schema of the database, including tables, relationships, and important fields.
+- **API Documentation**: Comprehensive documentation of the APIs used, including endpoints, request and response formats, and examples.
+- **Code Comments**: Ensuring the codebase is well-commented and adheres to coding standards and best practices.
 
 ### User Documentation
-- **User Manuals**: Guides for end-users of the application.
-- **FAQ**: Frequently Asked Questions and answers.
+- **User Manuals**: Detailed user manuals or guides explaining how to use the application, including screenshots and step-by-step instructions.
+- **FAQs**: Frequently Asked Questions section addressing common user queries and issues.
+- **Support Contacts**: Information on how users can contact support for assistance, including email, phone numbers, and working hours.
 
-## 2. Conducting Trainings
-### Technical Training for the Support Team
-- Overview of architecture and code.
-- Setting up the development and testing environment.
-- Understanding use cases and test scenarios.
-- Resolving potential issues and bugs.
+## 2. Team Roles and Responsibilities
+- **Maintenance Team**: A dedicated team responsible for maintaining and supporting the application.
+  - **Developers**: Addressing bugs, implementing minor enhancements, and ensuring the application runs smoothly.
+  - **Support Staff**: Handling user queries, providing technical assistance, and troubleshooting issues.
+  - **Project Manager**: Overseeing maintenance activities, coordinating with the development team, and ensuring timely updates.
 
-### End-User Training
-- Overview of application functionality.
-- Hands-on sessions on using the main features.
-- Q&A session.
+## 3. Regular Updates and Patches
+- **Scheduled Maintenance**: Planning regular maintenance windows for updates and patches to address security vulnerabilities, performance improvements, and minor bug fixes.
+- **Change Log**: Maintaining a detailed change log documenting all updates, fixes, and enhancements made to the application.
 
-## 3. Setting Up Support Environment
-### Code Repositories
-- Transfer access rights to repositories.
-- Set up CI/CD for automatic deployment of new versions.
+## 4. Monitoring and Analytics
+- **Performance Monitoring**: Implementing tools to monitor application performance, server health, and resource utilization.
+- **Error Tracking**: Setting up error tracking systems to identify and address issues promptly.
+- **User Analytics**: Gathering user feedback and analytics to understand user behavior, identify pain points, and prioritize future enhancements.
 
-### Development and Testing Environment
-- Creation and setup of local and test environments.
-- Instructions for developers on configuring their workstations.
+## 5. User Feedback and Improvement
+- **Feedback Mechanism**: Providing users with an easy way to submit feedback, suggestions, and bug reports directly from the application.
+- **Regular Surveys**: Conducting regular user surveys to gather insights into user satisfaction and areas for improvement.
+- **Continuous Improvement**: Analyzing user feedback and implementing iterative improvements to enhance the user experience.
 
-### Bug Tracking and Project Management Systems
-- Transfer access to bug tracking systems (e.g., Jira, Trello).
-- Setup process for submitting and resolving issues.
+---
 
-## 4. Ongoing Maintenance and Support
-### Update Schedule
-- **Regular Updates**: Plan and schedule for regular updates and improvements.
-- **Bug Fixes**: Systematic approach to identifying, prioritizing, and fixing bugs.
-- **Feature Releases**: Schedule for the release of new features and enhancements.
+# Lessons Learned and Areas for Improvement
 
-### Monitoring and Performance
-- **Monitoring Tools**: Set up and configure monitoring tools to track system performance and health.
-- **Performance Metrics**: Define key performance indicators (KPIs) and establish benchmarks.
-- **Alerts and Notifications**: Configure alerts for critical system issues.
+## Lessons Learned
 
-### User Support
-- **Support Channels**: Provide multiple channels for user support, including email, chat, and phone.
-- **Ticket Management System**: Implement a system for managing user requests and issues, ensuring timely resolution.
-- **Knowledge Base**: Develop a knowledge base with articles and tutorials to assist users in troubleshooting common issues.
+### Successes
+- **User Registration**: Implementing user registration using Google OAuth 2.0 provided a secure and user-friendly sign-up process.
+- **Account Dashboard**: The dashboard effectively displayed user information and was well-received for its intuitive design.
+- **Transaction History**: Detailed transaction history offered transparency, which users appreciated.
+- **Money Transfer**: Simplified the process of transferring money, enhancing user convenience.
+- **Customer Support**: Integrated support within the application led to quicker issue resolution and higher user satisfaction.
+- **Security Features**: Implementing two-factor authentication and encryption safeguarded user data effectively.
 
-### Backup and Recovery
-- **Backup Plan**: Regularly back up critical data and system configurations.
-- **Disaster Recovery**: Develop and test a disaster recovery plan to ensure business continuity.
+### Challenges
+- **CI/CD Pipeline**: Initial setup and configuration of the CI/CD pipeline faced delays and issues, impacting early deployments.
+- **Service Bus Integration**: Delays and complexities in integrating the Service Bus for message processing.
+- **Load Testing**: Load testing revealed performance bottlenecks that required significant optimization.
+- **Unit Test Coverage**: Achieving the desired unit test coverage was challenging and impacted the timeline.
 
-## 5. Transition to New Ownership (if applicable)
-### Project Valuation
-- Conducting a project valuation.
-- Preparing a presentation for potential buyers.
+### Root Cause Analysis
+- **CI/CD Pipeline Issues**: 
+  - **Root Cause**: Lack of prior experience with the specific CI/CD tools.
+  - **Resolution**: Conducted additional training and consulted documentation and forums.
+- **Service Bus Integration**: 
+  - **Root Cause**: Complexity of integration and insufficient initial planning.
+  - **Resolution**: Engaged with external experts and increased collaboration among team members.
+- **Load Testing Bottlenecks**: 
+  - **Root Cause**: Unoptimized code and inadequate resource allocation.
+  - **Resolution**: Code refactoring and increased resource allocation.
+- **Unit Test Coverage**: 
+  - **Root Cause**: Time constraints and underestimated effort.
+  - **Resolution**: Reallocated resources and extended the timeline slightly to improve coverage.
 
-### Legal Aspects
-- Preparing the sale agreement.
-- Agreeing on the terms of intellectual property transfer.
+## Areas for Improvement
+- **Planning**:
+  - **Improvement 1**: More detailed initial planning for CI/CD pipeline setup.
+  - **Improvement 2**: Allocate buffer time for unexpected delays in integration tasks.
+- **Execution**:
+  - **Improvement 1**: Establish clearer milestones and regular check-ins for complex integrations like the Service Bus.
+  - **Improvement 2**: Implement load testing early in the development cycle to identify and address performance issues sooner.
+- **Communication**:
+  - **Improvement 1**: Enhance communication channels between team members and stakeholders to ensure timely updates and feedback.
+  - **Improvement 2**: Increase documentation and knowledge sharing sessions to ensure all team members are on the same page.
+- **Risk Management**:
+  - **Improvement 1**: Identify potential risks earlier and develop mitigation strategies.
+  - **Improvement 2**: Regular risk assessment meetings to stay proactive.
+- **Technical Challenges**:
+  - **Improvement 1**: Invest in training for new technologies and tools to reduce the learning curve.
+  - **Improvement 2**: Regular code reviews and refactoring sessions to maintain code quality and performance.
 
-### Transition Period
-- Supporting the new team in the initial stages.
-- Collaborating with the new company to integrate their branding and interface changes.
+## Action Plan for Future Projects
+- **Action 1**: Develop comprehensive training programs for team members on new tools and technologies.
+- **Action 2**: Implement a more robust risk management framework with regular assessments and mitigation strategies.
+- **Action 3**: Initiate early and continuous performance testing to identify and address bottlenecks promptly.
+- **Action 4**: Enhance documentation practices to ensure clear and thorough project documentation is available at all stages.
+- **Action 5**: Allocate dedicated time for unit testing and quality assurance to meet coverage requirements.
 
 ## Conclusion
-Ensuring ongoing maintenance and support requires a comprehensive plan involving detailed documentation, thorough training, robust support infrastructure, and proactive monitoring. It is also crucial to have a structured update schedule and user support system to maintain the application's reliability and performance over time.
+The Monobank project was a significant success, with key achievements in user registration, account management, and security. However, challenges in CI/CD setup, integration, and performance testing highlighted areas for improvement. By addressing these issues through detailed planning, enhanced communication, proactive risk management, and continuous training, future projects can achieve even greater efficiency and quality.
 
+## Appendices
+- **Appendix A**: Survey Results
+- **Appendix B**: Meeting Notes
+- **Appendix C**: Performance Metrics
