@@ -251,9 +251,6 @@ The project's implementation timeline follows a structured approach, divided int
 - **CI/CD Pipeline Issues**: 
   - **Root Cause**: Lack of prior experience with the specific CI/CD tools.
   - **Resolution**: Conducted additional training and consulted documentation and forums.
-- **Service Bus Integration**: 
-  - **Root Cause**: Complexity of integration and insufficient initial planning.
-  - **Resolution**: Engaged with external experts and increased collaboration among team members.
 - **Load Testing Bottlenecks**: 
   - **Root Cause**: Unoptimized code and inadequate resource allocation.
   - **Resolution**: Code refactoring and increased resource allocation.
