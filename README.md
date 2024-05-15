@@ -19,11 +19,11 @@ To get started with this project:
 
 Welcome to the documentation for the Monobank project. This document provides an overview of the project, its features, technologies used, implementation timeline, and additional information.
 
-### Project Overview
+## Project Overview
 
 Monobank is a modern digital bank offering a range of banking services and financial products to its users. With seamless integration, secure authorization, and robust cloud-based infrastructure, Monobank ensures a smooth and efficient banking experience for its customers.
 
-### List of Application Features
+## List of Application Features
 
 1. **User Registration:** Users can sign up for a Monobank account using their Google credentials or email, ensuring a secure and hassle-free registration process.
 
@@ -58,7 +58,7 @@ Monobank is a modern digital bank offering a range of banking services and finan
 
 Using React for the frontend, Express for the backend, Sequelize for database operations, and Passport.js with Google OAuth 2.0 strategy for authentication provides a robust foundation for building a scalable, responsive, and secure digital banking application like Monobank.
 
-### Implementation Timeline
+# Implementation Timeline
 
 The project's implementation timeline follows a structured approach, divided into several weeks. Each week focuses on implementing specific features, setting up necessary infrastructure, and ensuring the project's progress aligns with the overall goals.
 
@@ -150,7 +150,7 @@ The project's implementation timeline follows a structured approach, divided int
 - [x] Celebrate project completion and team achievements
 - [x] Handover project to maintenance team for long-term management
 
-### Future enhancements and updates
+# Future enhancements and updates
 
 ### 1. Mobile Application:
 - Understand what users want from a mobile app and what features they expect.
