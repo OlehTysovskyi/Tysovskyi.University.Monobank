@@ -1,0 +1,70 @@
+.registration-container {
+    width: 80%;
+    height: 50vh;
+    margin: 20vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(180, 180, 180);
+    text-align: center;
+    border-radius: 2vh;
+    position: relative;
+    z-index: 1000;
+}
+  
+@media (min-width: 768px) {
+    .registration-container {
+        width: 40%;
+    }
+}
+  
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-box {
+    width: 100%;
+    margin: 0 0 3vh;
+    position: relative;
+}
+
+.error-msg {
+    position: absolute;
+    top: -40%;
+    left: 0;
+    width: 100%;
+    font-size: 1.7vh;
+    color: red;
+}
+
+.registration-input {
+    width: 30vh;
+    padding: 1vh;
+    border-radius: 1vh;
+}
+
+.show-pass-span {
+    width: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 115%;
+    left: 30%;
+}
+
+.registration-button {
+    width: 20vh;
+    margin: 1vh 0 3vh;
+    padding: 1vh 2vh;
+    font-size: 1rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+}

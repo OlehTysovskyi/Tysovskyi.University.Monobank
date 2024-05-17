@@ -5,6 +5,7 @@ const Account = require("../models/account");
 const Transfer = require("../models/transfer");
 const Payment = require("../models/payment");
 const Loan = require("../models/loan");
+const Bank = require("../models/bank");
 
 async function createTables() {
   try {
@@ -14,7 +15,8 @@ async function createTables() {
     await Account.sync();
     await Transfer.sync();
     await Payment.sync();
-    await Loan.sync();
+    // await Loan.sync();
+    await Bank.sync();
 
     // await Account.update({ balance: 12053.52 }, { where: { account_id: 4 } });
     console.log("<-Tables created successfully->");

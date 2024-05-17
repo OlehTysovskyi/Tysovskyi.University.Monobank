@@ -10,10 +10,20 @@ const Login = () => {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [formValid, setFormValid] = useState(false);
+
+  const validateForm = (data) => {
+    const emailValid = data.email.includes("@") && data.email.includes(".");
+    const passwordValid = data.password.length >= 8;
+    setFormValid(emailValid && passwordValid);
+  };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const newFormData = { ...formData, [e.target.name]: e.target.value };
+    setFormData(newFormData);
+    validateForm(newFormData)
   };
 
   const handleLogin = async (e) => {
@@ -31,50 +41,43 @@ const Login = () => {
   }
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <form
-        onSubmit={handleLogin}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            fontSize: "1rem",
-            backgroundColor: "blue",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Login
+    <div className="login-container">
+      <form onSubmit={handleLogin} className="login-form">
+        <div className="input-box">
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Введіть е-пошту"
+            className="login-input"
+          />
+        </div>
+        <div className="input-box">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Введіть пароль"
+            className="login-input"
+          />
+          <span className="show-pass-span">
+            <input
+              type="checkbox"
+              onClick={() => setShowPassword(!showPassword)}
+            />
+            Показати
+          </span>
+        </div>
+        <button type="submit" className="login-button" disabled={!formValid}>
+          Увійти
         </button>
         <GoogleAuthButton />
       </form>
       <p>
-        Don't have an account?{" "}
-        <NavLink to="/registration">Register here</NavLink>
+        Немаєте аккаунту?{" "}
+        <NavLink to="/registration">Зареєструйтеся тут</NavLink>
       </p>
     </div>
   );

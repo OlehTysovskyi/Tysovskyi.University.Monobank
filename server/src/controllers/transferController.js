@@ -1,7 +1,8 @@
 const Transfer = require("../models/transfer");
 const Card = require("../models/card");
 const { Op } = require("sequelize");
-const { getUsernameByCardNum } = require("../controllers/cardController");
+const { getUserByCardNum } = require("../controllers/cardController");
+const { sendSuccessTransferEmail } = require("../utils/sendEmail");
 
 async function createTransfer(req, res) {
   const { sender_card_num, recipient_card_num, amount } = req.body;
@@ -43,6 +44,11 @@ async function createTransfer(req, res) {
       date: current_date,
     });
 
+    const user = await getUserByCardNum(recipient_card_num);
+    const recipient_email = user.email;
+    console.log(recipient_email);
+    sendSuccessTransferEmail(recipient_email);
+
     res.status(201).json(transfer);
   } catch (error) {
     console.error(error);
@@ -74,9 +80,13 @@ const getUserTransfers = async (req, res) => {
         let username = "";
 
         if (type === "OUTGOING") {
-          username = await getUsernameByCardNum(transfer.recipient_card_num);
+          const recipient_user = await getUserByCardNum(
+            transfer.recipient_card_num
+          );
+          username = recipient_user.username;
         } else if (type === "INCOMING") {
-          username = await getUsernameByCardNum(transfer.sender_card_num);
+          const sender_user = await getUserByCardNum(transfer.sender_card_num);
+          username = sender_user.username;
         }
 
         return { ...transfer.toJSON(), type, username };

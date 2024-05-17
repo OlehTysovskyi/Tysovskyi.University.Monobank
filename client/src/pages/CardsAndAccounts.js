@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import BackButton from "../components/BackButton";
 import { useAuth } from "../contexts/authContext";
 import { useUserService } from "../services/userService";
 
@@ -14,7 +15,7 @@ const CardsAndAccounts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cardsData = await getUserCards(user.id);
+        const cardsData = await getUserCards();
         setCards(cardsData);
       } catch (error) {
         console.error("Error fetching user cards:", error);
@@ -35,9 +36,7 @@ const CardsAndAccounts = () => {
 
   return (
     <div className="cards-and-accounts">
-      <NavLink className="back-btn" to="/">
-        -
-      </NavLink>
+      <BackButton to="/" color="white"/>
       <div className="profile">
         <div className="avatar"></div>
         <div className="username">{user.username}</div>

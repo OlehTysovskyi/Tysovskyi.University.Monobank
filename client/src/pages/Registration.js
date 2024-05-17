@@ -1,26 +1,45 @@
 import React, { useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
 import { useAuthentication } from "../services/authService";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const Registration = () => {
   const { register } = useAuthentication();
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+  const [redirect, setRedirect] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const SignupSchema = Yup.object().shape({
+    username: Yup.string()
+      .matches(/^[a-zA-Z]+$/, "Ім'я має містити лише англійські літери")
+      .min(2, "Ім'я занадто коротке! Мінімум 2 символи.")
+      .max(20, "Ім'я занадто довге! Максимум 20 символів.")
+      .required("Обов'язкове поле"),
+    email: Yup.string()
+      .email("Некоректний email")
+      .test(
+        "is-valid-domain",
+        "Неправильний домен електронної адреси",
+        function (value) {
+          const validDomains = [
+            "gmail.com",
+            "yahoo.com",
+            "hotmail.com",
+            "outlook.com",
+          ];
+          return validDomains.includes(value.split("@")[1]);
+        }
+      )
+      .required("Обов'язкове поле"),
+    password: Yup.string()
+      .min(8, "Пароль занадто короткий! Мінімум 8 символів.")
+      .max(128, "Пароль занадто довгий! Максимум 128 символів.")
+      .required("Обов'язкове поле"),
   });
 
-  const [redirect, setRedirect] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleRegistration = async (e) => {
-    e.preventDefault();
-
+  const handleRegistration = async (values) => {
     try {
-      const shouldRedirect = await register(formData);
+      const shouldRedirect = await register(values);
       setRedirect(shouldRedirect);
     } catch (error) {
       console.error("Error:", error);
@@ -32,56 +51,78 @@ const Registration = () => {
   }
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <form
+    <div className="registration-container">
+      <Formik
+        initialValues={{ username: "", email: "", password: "" }}
+        validationSchema={SignupSchema}
         onSubmit={handleRegistration}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
       >
-        <input
-          type="text"
-          name="username"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter your username"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          style={{ marginBottom: "10px", padding: "8px", width: "300px" }}
-        />
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            fontSize: "1rem",
-            backgroundColor: "green",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Register
-        </button>
-      </form>
+        {({ isValid, setFieldValue }) => (
+          <Form className="registration-form">
+            <div className="input-box">
+              <Field
+                type="text"
+                name="username"
+                placeholder="Введіть ім'я"
+                className="registration-input"
+                onChange={(e) => {
+                  setFieldValue(
+                    "username",
+                    e.target.value.replace(/[^a-zA-Zа-яА-ЯіІїЇёЁєЄ]/gu, "")
+                  );
+                }}
+              />
+              <ErrorMessage
+                name="username"
+                component="div"
+                className="error-msg"
+              />
+            </div>
+            <div className="input-box">
+              <Field
+                type="email"
+                name="email"
+                placeholder="Введіть е-пошту"
+                className="registration-input"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-msg"
+              />
+            </div>
+            <div className="input-box">
+              <Field
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Введіть пароль"
+                className="registration-input"
+              />
+              <span className="show-pass-span">
+                <input
+                  type="checkbox"
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+                Показати
+              </span>
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="error-msg"
+              />
+            </div>
+            <button
+              type="submit"
+              className="registration-button"
+              disabled={!isValid}
+            >
+              Зареєструватися
+            </button>
+          </Form>
+        )}
+      </Formik>
       <p>
-        Already have an account? <NavLink to="/login">Login here</NavLink>
+        Вже маєте аккаунт? <NavLink to="/login">Увійдіть тут</NavLink>
       </p>
     </div>
   );

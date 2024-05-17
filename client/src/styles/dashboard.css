@@ -11,23 +11,21 @@
 }
   
 .cards-page-btn {
-    width: 2vw;
-    height: 2vw;
+    width: 3.5vh;
+    height: 3.5vh;
     margin: 0 auto;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
 }
   
 .logout-btn {
     width: 100%;
+    margin: 2vh 0 0;
     height: 7vh;
     border-radius: 1.5vh;
     background-color: rgb(85, 84, 198);
     color: white;
+    font-size: 2.5vh;
 }
   
 .dashboard .funds-box {
@@ -35,13 +33,13 @@
 }
   
 .dashboard .funds {
-    font-size: 3.5vw;
+    font-size: 5.5vh;
     font-weight: 700;
     color: white;
 }
   
 .dashboard .own-funds, .credit-limit {
-    font-size: 0.8vw;
+    font-size: 1.8vh;
     color: black;
 }
   
@@ -60,8 +58,8 @@
 }
   
 .dashboard .btn {
-    width: 3.5vw;
-    height: 3.5vw;
+    width: 6vh;
+    height: 6vh;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -74,6 +72,6 @@
 .dashboard .btn-text {
     margin-top: 0.3vw;
     text-align: center;
-    font-size: 0.8vw;
+    font-size: 1.8vh;
     color: white;
 }

@@ -6,6 +6,13 @@
 @import url("create-transfer.css");
 @import url("other-payment.css");
 @import url("iban-payment.css");
+@import url("savings.css");
+@import url("create-bank.css");
+@import url("more.css");
+@import url("support.css");
+@import url("success-message.css");
+@import url("login.css");
+@import url("registration.css");
 
 
 body {
@@ -28,6 +35,35 @@ body {
 }
 
 @media (min-width: 768px) {
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      
+      body::before,
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: blur(3px);
+      }
+      
+      body::before {
+        left: 0;
+        background-image: url(../assets/images/monobank-wallpaper-left.png);
+        background-position: left center;
+      }
+      
+      body::after {
+        right: 0;
+        background-image: url(../assets/images/monobank-wallpaper-right.png);
+        background-position: -150px center;
+      }
 
     .body-container {
       max-width: 25vw;
@@ -37,9 +73,36 @@ body {
     }
 
     .main-container {
+      position: relative;
       width: 100%;
       height: fit-content;
+      z-index: 1000;
     }
 
   }
 
+.submit-btn:disabled {
+  background-color: rgb(203, 203, 203);
+  color: white;
+  cursor: not-allowed;
+}
+
+.registration-button:disabled {
+  background-color: rgb(203, 203, 203);
+  color: white;
+  cursor: not-allowed;
+}
+
+.login-button:disabled {
+  background-color: rgb(203, 203, 203);
+  color: white;
+  cursor: not-allowed;
+}
+
+.back-btn {
+  width: 3vh;
+  height: 3vh;
+  position: absolute;
+  top: 2vh;
+  left: 2vh;
+}
