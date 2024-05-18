@@ -309,6 +309,9 @@ The project's implementation timeline follows a structured approach, divided int
 -   Hulak Mykhailo
 -   [Project Link](https://hulak-university-local-news.vercel.app/)
 
+-   Siryk Mykyta
+-   [Project Link](https://personal-finance-tracker-pft-client.azurewebsites.net/)
+  
 ## Conclusion
 
 The Monobank project was a significant success, with key achievements in user registration, account management, and security. However, challenges in CI/CD setup, integration, and performance testing highlighted areas for improvement. By addressing these issues through detailed planning, enhanced communication, proactive risk management, and continuous training, future projects can achieve even greater efficiency and quality.
