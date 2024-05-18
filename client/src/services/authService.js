@@ -8,6 +8,7 @@ export const useAuthentication = () => {
 
     const login = async (formData) => {
         try {
+            // ANTILAB 2: No sensitive data in the client
             const response = await fetch(
                 'https://tysovskyi-university-monobank-server.vercel.app/api/login',
                 {

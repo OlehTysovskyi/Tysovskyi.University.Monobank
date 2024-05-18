@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 
+// ANTILAB 2: MOVE SENSITIVE DATA TO ENV VARIABLES
 const transporter = nodemailer.createTransport({
     service: 'outlook',
     secure: false,
@@ -27,6 +28,7 @@ async function sendSupportEmail(req, res) {
     const { problem_text, sender_email } = req.body;
 
     try {
+        // ANTILAB 2: MOVE SENSITIVE DATA TO ENV VARIABLES
         await transporter.sendMail({
             from: 'mono_sender@outlook.com',
             to: 'mono_help_center@outlook.com',
@@ -53,6 +55,7 @@ async function sendSupportEmail(req, res) {
 
 async function sendSuccessTransactionEmail(recipient_email) {
     try {
+        // ANTILAB 2: MOVE SENSITIVE DATA TO ENV VARIABLES
         await transporter.sendMail({
             from: 'mono_sender@outlook.com',
             to: recipient_email,
