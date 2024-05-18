@@ -11,6 +11,7 @@ const CreateCard = () => {
 
     const [userCards, setUserCards] = useState([]);
     // TODO: Remove unused vars and functions or replace them with planned functionality
+    // ANTILAB 2: Agree with TODO comment
     const [showMessage, setShowMessage] = useState(false);
     const [redirect, setRedirect] = useState(false);
     const [cardsLoaded, setCardsLoaded] = useState(false);

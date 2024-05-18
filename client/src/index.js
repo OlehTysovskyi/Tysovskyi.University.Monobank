@@ -11,6 +11,7 @@ import Navigation from "./components/Navigation";
 import * as Sentry from "@sentry/react";
 
 Sentry.init({
+  // ANTILAB 2: MOVE SENSITIVE DATA TO ENV VARIABLES
   dsn: "https://0adb5d0e38b9255aaaeb553610f67aa8@o4507180142624768.ingest.de.sentry.io/4507180147212368",
   integrations: [
     Sentry.browserTracingIntegration(),

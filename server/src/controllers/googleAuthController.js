@@ -10,6 +10,7 @@ passport.use(
     {
       clientID: clientID,
       clientSecret: clientSecret,
+      // ANTILAB 2: No magic strings
       callbackURL: "http://localhost:3001/auth/google/callback",
       passReqToCallback: true,
     },

@@ -2,6 +2,7 @@ const { Sequelize } = require('sequelize');
 const tedious = require('tedious');
 
 // TODO: Move sensitive data into .env file
+// ANTILAB 2: MOVE SENSITIVE DATA INTO .ENV FILE
 const sequelize = new Sequelize('monobank', 'tysyk-monobank', 'A2s4D6f8', {
     host: 'monobank.database.windows.net',
     dialect: 'mssql',
