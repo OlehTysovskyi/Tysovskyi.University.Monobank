@@ -258,15 +258,6 @@ The project's implementation timeline follows a structured approach, divided int
 
 ## Lessons Learned
 
-### Successes
-
--   **User Registration**: Implementing user registration using Google OAuth 2.0 provided a secure and user-friendly sign-up process.
--   **Account Dashboard**: The dashboard effectively displayed user information and was well-received for its intuitive design.
--   **Transaction History**: Detailed transaction history offered transparency, which users appreciated.
--   **Money Transfer**: Simplified the process of transferring money, enhancing user convenience.
--   **Customer Support**: Integrated support within the application led to quicker issue resolution and higher user satisfaction.
--   **Security Features**: Implementing two-factor authentication and encryption safeguarded user data effectively.
-
 ### Challenges
 
 -   **CI/CD Pipeline**: Initial setup and configuration of the CI/CD pipeline faced delays and issues, impacting early deployments.
@@ -304,6 +295,8 @@ The project's implementation timeline follows a structured approach, divided int
     -   **Improvement 1**: Invest in training for new technologies and tools to reduce the learning curve.
     -   **Improvement 2**: Regular code reviews and refactoring sessions to maintain code quality and performance.
 
+---
+
 ## ANTILAB 2
 
 -   Hulak Mykhailo
@@ -316,41 +309,62 @@ The project's implementation timeline follows a structured approach, divided int
 
 The Monobank project achieved significant successes in user registration, account management, and security features, contributing to a positive user experience and customer satisfaction. However, challenges in CI/CD setup, integration, and performance testing underscored the importance of better planning, communication, and risk management strategies. By addressing these areas for improvement through enhanced planning, communication, and technical proficiency, future projects can achieve greater efficiency, quality, and success.
 
+---
+
+# Project Retrospective
+
 ...
 
 ## Challenges
 
-- **CI/CD Pipeline**: Initial setup and configuration of the CI/CD pipeline faced delays and issues, impacting early deployments and hindering the development workflow.
-  
-  - **Description**: Lack of prior experience with the specific CI/CD tools resulted in difficulties during setup and configuration, leading to delays in the deployment process.
-  
-  - **Resolution**: Conducted additional training sessions and workshops to enhance team proficiency with CI/CD tools. Engaged with experienced DevOps consultants for guidance and best practices. Established a dedicated task force to address specific pipeline configuration challenges and streamline the deployment process.
-  
-  - **Skills**: Improved proficiency with CI/CD tools (e.g., Jenkins, Docker) would have facilitated smoother setup and configuration. Enhanced knowledge of containerization and orchestration technologies (e.g., Kubernetes) could have provided alternative deployment solutions and improved scalability.
+### CI/CD Pipeline & Service Bus Integration
 
-- **Service Bus Integration**: Delays and complexities in integrating the Service Bus for message processing posed challenges and required additional time and resources for resolution.
+- **Description**: Initial setup and configuration of the CI/CD pipeline faced delays and issues, impacting early deployments and hindering the development workflow. Integration with the Service Bus introduced unexpected complexities due to differences in data formats and communication protocols, leading to integration challenges and project delays.
   
-  - **Description**: Integration with the Service Bus introduced unexpected complexities due to differences in data formats and communication protocols, leading to integration challenges and project delays.
-  
-  - **Resolution**: Collaborated closely with Azure integration experts and Service Bus documentation to identify compatibility issues and develop tailored integration solutions. Implemented a phased approach to integration, focusing on critical functionalities first before expanding to more complex use cases. Utilized mock testing environments to simulate Service Bus interactions and validate integration logic before deployment.
-  
-  - **Skills**: Enhanced understanding of enterprise integration patterns (EIP) and message queuing systems would have facilitated smoother integration with the Service Bus. Proficiency with Azure Service Bus features and capabilities could have expedited troubleshooting and resolution of integration issues.
+- **Resolution**: Conducted additional training sessions and workshops to enhance team proficiency with CI/CD tools. Engaged with experienced DevOps consultants for guidance and best practices. Collaborated closely with Azure integration experts and Service Bus documentation to identify compatibility issues and develop tailored integration solutions. Established a dedicated task force to address specific pipeline configuration challenges and streamline the deployment process. Implemented a phased approach to integration, focusing on critical functionalities first before expanding to more complex use cases.
 
-- **Load Testing**: Load testing revealed performance bottlenecks that required significant optimization efforts to address and improve the overall system performance.
-  
-  - **Description**: Initial load testing uncovered performance bottlenecks related to database queries, resource utilization, and application scalability, impacting user experience and system reliability under high traffic conditions.
-  
-  - **Resolution**: Conducted comprehensive performance profiling and analysis to identify specific areas of optimization, including database indexing, query optimization, and caching strategies. Implemented horizontal scaling techniques to distribute load across multiple servers and improve system responsiveness. Utilized load testing tools (e.g., JMeter, Gatling) to simulate realistic user scenarios and validate performance improvements iteratively.
-  
-  - **Skills**: Advanced knowledge of database optimization techniques (e.g., indexing, query tuning) would have expedited identification and resolution of performance bottlenecks. Familiarity with cloud-native scalability solutions (e.g., auto-scaling, serverless architecture) could have provided additional options for improving system performance and reliability.
+- **Skills**: Improved proficiency with CI/CD tools (e.g., Jenkins, Docker) would have facilitated smoother setup and configuration. Enhanced understanding of enterprise integration patterns (EIP) and message queuing systems would have facilitated smoother integration with the Service Bus.
 
-- **Unit Test Coverage**: Achieving the desired unit test coverage proved challenging within the allocated timeline, highlighting the need for better planning and resource allocation.
+### Test Automation & Server Testing Tools
+
+- **Description**: Lack of proficiency in writing tests for the application and unfamiliarity with server testing tools, particularly for frameworks like FastAPI (as opposed to Express), resulted in inadequate test coverage and limited validation of server-side functionalities.
   
-  - **Description**: Limited resources and time constraints hindered the implementation of comprehensive unit test coverage, resulting in gaps in test coverage and potential regression issues during development and maintenance.
+- **Resolution**: Invested time in learning and training sessions focused on test automation frameworks suitable for the application stack, including tools for testing server-side functionalities specific to FastAPI. Engaged with experienced developers and QA engineers to gain insights into best practices and approaches for writing comprehensive tests. Conducted hands-on experimentation and prototyping with different testing frameworks and tools to identify the most suitable options for the project requirements.
+
+- **Skills**: Enhanced proficiency in test automation frameworks (e.g., PyTest, SuperTest) and server testing tools (e.g., PyTest-asyncio, FastAPI TestClient) specific to the project stack would have facilitated more robust test coverage and validation of server-side functionalities. Improved understanding of testing methodologies, including unit testing, integration testing, and end-to-end testing, would have enabled more comprehensive validation of application components and workflows.
+
+### Security Vulnerabilities & Patch Management
+
+- **Description**: Vulnerability scans identified security vulnerabilities in third-party dependencies and outdated libraries, posing risks to application security and data integrity. Patch management processes were not well-defined, leading to delays in applying critical security patches and updates.
   
-  - **Resolution**: Prioritized critical application components and business logic for unit test coverage, focusing on high-risk areas prone to defects and vulnerabilities. Implemented test-driven development (TDD) practices to ensure test coverage alignment with code implementation and facilitate early bug detection. Leveraged code coverage analysis tools to identify untested code paths and prioritize test case creation accordingly.
+- **Resolution**: Conducted thorough security audits and vulnerability assessments to identify and prioritize security vulnerabilities based on severity and impact. Established a patch management policy and schedule regular security patch updates for third-party dependencies and system components. Implemented automated vulnerability scanning and monitoring tools to detect and mitigate security risks in real-time.
+
+- **Skills**: Enhanced expertise in security vulnerability assessment tools (e.g., Nessus, OpenVAS) and penetration testing techniques would have facilitated more comprehensive security assessments and risk mitigation strategies. Improved understanding of secure coding practices and secure software development lifecycle (SDLC) principles would have minimized the introduction of security vulnerabilities during the development process.
+
+### Scalability & Performance Optimization
+
+- **Description**: As the user base grew, the application faced scalability challenges, leading to degraded performance and increased response times. Inefficient resource utilization and lack of performance optimization strategies contributed to scalability issues and hindered user experience.
   
-  - **Skills**: Enhanced proficiency with unit testing frameworks (e.g., Jest, Mocha) and test automation tools would have facilitated efficient test case creation and execution. Improved understanding of test-driven development (TDD) principles and practices could have fostered a more test-centric development approach and improved code quality.
+- **Resolution**: Implemented horizontal scaling techniques to distribute traffic across multiple servers and improve system scalability. Conducted performance profiling and optimization to identify and address performance bottlenecks, including database query optimization, caching strategies, and resource allocation adjustments. Utilized cloud-based scalability solutions, such as auto-scaling groups and load balancers, to dynamically adjust resource allocation based on traffic demands.
+
+- **Skills**: Enhanced expertise in cloud-based scalability solutions (e.g., AWS Auto Scaling, Azure Autoscale) and performance optimization techniques (e.g., query optimization, caching mechanisms) would have facilitated more efficient resource utilization and improved system scalability. In-depth knowledge of application performance monitoring tools (e.g., New Relic, Datadog) would have enabled proactive identification and resolution of performance issues.
+
+### Team Collaboration & Communication
+
+- **Description**: Inadequate team collaboration and communication led to misunderstandings, duplicated efforts, and delays in project deliverables. Lack of clear communication channels and project management tools hindered information sharing and coordination among team members.
+  
+- **Resolution**: Implemented regular team meetings and stand-ups to enhance communication and alignment on project goals and priorities. Utilized project management tools, such as Jira or Trello, for task tracking, progress monitoring, and issue management. Established clear communication channels, including Slack channels and email distribution lists, for sharing updates, announcements, and important project-related information. Conducted team-building activities and workshops to foster a collaborative and cohesive team culture.
+
+- **Skills**: Improved proficiency in effective communication techniques, including active listening, clarity in conveying information, and diplomatic conflict resolution, would have facilitated smoother collaboration and coordination among team members. Enhanced knowledge of project management methodologies, such as Agile or Scrum, and familiarity with project management tools would have improved project planning, execution, and monitoring.
+
+### Client Requirement Changes & Scope Creep
+
+- **Description**: Frequent changes in client requirements and scope creep resulted in project scope and timeline extensions, impacting project deliverables and resource allocation. Inadequate change management processes and scope definition led to ambiguity and misunderstandings regarding project expectations and deliverables.
+  
+- **Resolution**: Established a formal change management process to document, evaluate, and prioritize client requests and requirement changes. Conducted regular stakeholder meetings and requirement workshops to gather feedback, clarify expectations, and validate project scope. Implemented version control mechanisms, such as Git branching strategies, to manage changes and track project versions effectively. Provided transparent communication to clients regarding the impact of requirement changes on project scope, timeline, and budget.
+
+- **Skills**: Enhanced proficiency in requirement elicitation techniques, such as user interviews, surveys, and prototyping, would have facilitated clearer understanding and documentation of
+
 
 
 
