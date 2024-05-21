@@ -256,16 +256,14 @@ The project's implementation timeline follows a structured approach, divided int
 
 # Lessons Learned and Areas for Improvement
 
-## Lessons Learned
-
-### Challenges
+## Challenges
 
 -   **CI/CD Pipeline**: Initial setup and configuration of the CI/CD pipeline faced delays and issues, impacting early deployments.
 -   **Service Bus Integration**: Delays and complexities in integrating the Service Bus for message processing.
 -   **Load Testing**: Load testing revealed performance bottlenecks that required significant optimization.
 -   **Unit Test Coverage**: Achieving the desired unit test coverage was challenging and impacted the timeline.
 
-### Root Cause Analysis
+## Root Cause Analysis
 
 -   **CI/CD Pipeline Issues**:
     -   **Root Cause**: Lack of prior experience with the specific CI/CD tools.
@@ -312,8 +310,6 @@ The Monobank project achieved significant successes in user registration, accoun
 ---
 
 # Project Retrospective
-
-...
 
 ## Challenges
 
