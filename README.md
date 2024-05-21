@@ -345,22 +345,10 @@ The Monobank project achieved significant successes in user registration, accoun
 
 - **Skills**: Enhanced expertise in cloud-based scalability solutions (e.g., AWS Auto Scaling, Azure Autoscale) and performance optimization techniques (e.g., query optimization, caching mechanisms) would have facilitated more efficient resource utilization and improved system scalability. In-depth knowledge of application performance monitoring tools (e.g., New Relic, Datadog) would have enabled proactive identification and resolution of performance issues.
 
-### Team Collaboration & Communication
-
-- **Description**: Inadequate team collaboration and communication led to misunderstandings, duplicated efforts, and delays in project deliverables. Lack of clear communication channels and project management tools hindered information sharing and coordination among team members.
-  
-- **Resolution**: Implemented regular team meetings and stand-ups to enhance communication and alignment on project goals and priorities. Utilized project management tools, such as Jira or Trello, for task tracking, progress monitoring, and issue management. Established clear communication channels, including Slack channels and email distribution lists, for sharing updates, announcements, and important project-related information. Conducted team-building activities and workshops to foster a collaborative and cohesive team culture.
-
-- **Skills**: Improved proficiency in effective communication techniques, including active listening, clarity in conveying information, and diplomatic conflict resolution, would have facilitated smoother collaboration and coordination among team members. Enhanced knowledge of project management methodologies, such as Agile or Scrum, and familiarity with project management tools would have improved project planning, execution, and monitoring.
-
 ### Client Requirement Changes & Scope Creep
 
 - **Description**: Frequent changes in client requirements and scope creep resulted in project scope and timeline extensions, impacting project deliverables and resource allocation. Inadequate change management processes and scope definition led to ambiguity and misunderstandings regarding project expectations and deliverables.
   
 - **Resolution**: Established a formal change management process to document, evaluate, and prioritize client requests and requirement changes. Conducted regular stakeholder meetings and requirement workshops to gather feedback, clarify expectations, and validate project scope. Implemented version control mechanisms, such as Git branching strategies, to manage changes and track project versions effectively. Provided transparent communication to clients regarding the impact of requirement changes on project scope, timeline, and budget.
 
-- **Skills**: Enhanced proficiency in requirement elicitation techniques, such as user interviews, surveys, and prototyping, would have facilitated clearer understanding and documentation of
-
-
-
-
+- **Skills**: Enhanced proficiency in requirement elicitation techniques, such as user interviews, surveys, and prototyping, would have facilitated clearer understanding and documentation of client requirements. Improved stakeholder engagement and collaboration would have ensured alignment between client expectations and project deliverables, minimizing scope creep and change-related disruptions. Additionally, advanced project management skills, including risk assessment and contingency planning, would have enabled more proactive management of project scope changes and their implications on timeline and resources allocation.
