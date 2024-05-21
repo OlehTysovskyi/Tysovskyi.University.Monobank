@@ -323,7 +323,7 @@ The Monobank project achieved significant successes in user registration, accoun
   - **Description**: Experience with integrating Google OAuth 2.0 for user authentication and other third-party APIs contributed significantly to building a secure and feature-rich application.
 
 - **Problem-solving Abilities**:
-  - **Description**: Swift problem-solving skills were essential for identifying and addressing challenges encountered during the development process, ensuring project progress and success.
+  - **Description**: Strong problem-solving skills were essential for identifying and addressing challenges encountered during the development process, ensuring project progress and success.
 
 ## Challenges
 
