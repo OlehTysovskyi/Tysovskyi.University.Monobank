@@ -311,6 +311,20 @@ The Monobank project achieved significant successes in user registration, accoun
 
 # Project Retrospective
 
+## Useful Skills
+
+- **Utilization of React and Express Knowledge**:
+  - **Description**: A deep understanding of React for frontend development and Express for backend creation proved to be invaluable in implementing various functionalities and ensuring their maintainability.
+
+- **Understanding of Database Fundamentals and ORM**:
+  - **Description**: Proficiency in database fundamentals and familiarity with ORMs, particularly Sequelize, facilitated efficient data modeling and interaction, thereby streamlining feature development and upkeep.
+
+- **Skills in Integrating Third-party Services and APIs**:
+  - **Description**: Experience with integrating Google OAuth 2.0 for user authentication and other third-party APIs contributed significantly to building a secure and feature-rich application.
+
+- **Problem-solving Abilities**:
+  - **Description**: Swift problem-solving skills were essential for identifying and addressing challenges encountered during the development process, ensuring project progress and success.
+
 ## Challenges
 
 ### CI/CD Pipeline & Service Bus Integration
